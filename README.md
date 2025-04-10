@@ -41,7 +41,7 @@ const App = () => {
 ```
 
 
-## Another props:
+### Another props:
 
 
 ```tsx
