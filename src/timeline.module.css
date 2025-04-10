@@ -1,0 +1,120 @@
+.calendar {
+  padding: 4px;
+}
+
+.range {
+  font-size: 14px;
+  padding: 0 12px;
+  text-align: left;
+  border-radius: 6px;
+  height: 2rem;
+  line-height: 2rem;
+  cursor: pointer;
+  top: 14px;
+  left: 4px;
+  position: absolute;
+  z-index: 2;
+  font-weight: 600;
+}
+
+.startPrev {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  left: 0;
+}
+
+.endNext {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: 600;
+  align-items: center;
+}
+
+.sidebar,
+.content,
+.range {
+  transition:
+    max-width 500ms,
+    width 500ms,
+    flex-basis 500ms,
+    min-width 500ms ease-in-out;
+}
+
+.item {
+  padding: 8px;
+  text-align: center;
+  border-radius: 0;
+  height: 56px;
+}
+
+.sidebar .headSidebar > .item {
+  border-top-left-radius: 6px;
+}
+
+.sidebar .bodySidebar .item:last-child {
+  border-bottom-left-radius: 6px;
+}
+
+.content .headContent > div:last-child .item {
+  border-top-right-radius: 6px;
+}
+
+.content .bodyContent > div:last-child > div:last-child > div:last-child .item {
+  border-bottom-right-radius: 6px;
+}
+
+.text {
+  margin: 0;
+  font-family: 'Golos Text', Tofu;
+  font-weight: 400;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  letter-spacing: 0.0075em;
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.57;
+  letter-spacing: 0.00714em;
+}
+
+.bodyTitle,
+.subtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bodyTitle {
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+
+.bodyText {
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+}
+
+.caption {
+  font-size: 0.75rem;
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+  opacity: 0.7;
+}

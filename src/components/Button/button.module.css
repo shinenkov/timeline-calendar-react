@@ -1,0 +1,30 @@
+.button {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Size variants */
+.small {
+  padding: 6px 10px;
+}
+
+.medium {
+  padding: 8px 20px;
+}
+
+.large {
+  padding: 16px 32px;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,135 @@
+.selectContainer {
+  display: inline-block;
+  width: 320px;
+  text-align: center;
+  position: relative;
+  z-index: 9;
+}
+
+.selectedText {
+  cursor: pointer;
+  background-color: transparent;
+  padding: 7px 20px;
+  border: 2px solid #575757;
+  border-radius: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.selectedTextActive {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.selectOptions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 320px;
+  overflow-y: auto;
+  border: 2px solid #9f9f9f;
+  border-radius: 6px;
+  border-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
+}
+
+.selectedText::after {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 16px;
+  border: 7px solid transparent;
+  border-color: currentColor transparent transparent transparent;
+}
+
+.selectedTextActive::after {
+  top: 8px;
+  border-color: transparent transparent currentColor transparent;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px 8px;
+  cursor: pointer;
+}
+
+.selectOption {
+  display: flex;
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  font-size: 14px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.selectOption input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: relative;
+  height: 22px;
+  width: 22px;
+  margin-right: 24px;
+  border-radius: 6px;
+}
+
+.selectOption input ~ .checkmark {
+  background-color: #989898;
+}
+
+.checkmark:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.selectOption input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.selectOption .checkmark:after {
+  left: 9px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.selectOption:hover {
+  background-color: var(--hover-checkmark) !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 992px) {
+  .selectContainer {
+    width: 100%;
+  }
+}

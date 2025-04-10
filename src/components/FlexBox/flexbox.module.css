@@ -1,0 +1,167 @@
+.flexBox {
+  display: block;
+  width: 100%;
+}
+
+.flexContainer {
+  display: flex;
+  width: 100%;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.padding0 {
+  padding: 0;
+}
+.padding1 {
+  padding: 8px;
+}
+.padding2 {
+  padding: 16px;
+}
+.padding3 {
+  padding: 24px;
+}
+.padding4 {
+  padding: 32px;
+}
+
+/* Grid sizes */
+.size1 {
+  flex-basis: 8.33%;
+  max-width: 8.33%;
+}
+.size2 {
+  flex-basis: 16.66%;
+  max-width: 16.66%;
+}
+.size3 {
+  flex-basis: 25%;
+  max-width: 25%;
+}
+.size4 {
+  flex-basis: 33.33%;
+  max-width: 33.33%;
+}
+.size5 {
+  flex-basis: 41.66%;
+  max-width: 41.66%;
+}
+.size6 {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+.size7 {
+  flex-basis: 58.33%;
+  max-width: 58.33%;
+}
+.size8 {
+  flex-basis: 66.66%;
+  max-width: 66.66%;
+}
+.size9 {
+  flex-basis: 75%;
+  max-width: 75%;
+}
+.size10 {
+  flex-basis: 83.33%;
+  max-width: 83.33%;
+}
+.size11 {
+  flex-basis: 91.66%;
+  max-width: 91.66%;
+}
+.size12 {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+.customSize {
+  min-width: var(--custom-width);
+  max-width: var(--custom-width);
+  flex-basis: var(--custom-width);
+}
+
+@media (max-width: 1200px) {
+  .size1,
+  .size2,
+  .size3,
+  .size4,
+  .size5 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  .size6,
+  .size7,
+  .size8,
+  .size9,
+  .size10,
+  .size11,
+  .size12 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .size1,
+  .size2,
+  .size3,
+  .size4,
+  .size5 {
+    flex-basis: 50%;
+    max-width: 50%;
+  }
+  .size6,
+  .size7,
+  .size8,
+  .size9,
+  .size10,
+  .size11,
+  .size12 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .size1,
+  .size2,
+  .size3,
+  .size4,
+  .size5,
+  .size6,
+  .size7,
+  .size8,
+  .size9,
+  .size10,
+  .size11,
+  .size12 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .size1,
+  .size2,
+  .size3,
+  .size4,
+  .size5,
+  .size6,
+  .size7,
+  .size8,
+  .size9,
+  .size10,
+  .size11,
+  .size12 {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,14 @@
+.dayContainer {
+  min-height: 56px;
+  position: relative;
+}
+
+.tooltip {
+  z-index: 999;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.flexContainer {
+  max-width: var(--cell-width, var(--max-width));
+}
