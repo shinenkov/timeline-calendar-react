@@ -25,6 +25,8 @@ type RangeType = {
   userId: number | string;
 };
 
+// ....
+
 export const mockUsers = [
   { id: 1, name: 'John Doe', department: 'Sales' },
   { id: 2, name: 'Jane Smith', department: undefined },
@@ -68,6 +70,7 @@ const App = () => {
       ranges={mockRanges as RangeType[]}
       // not required
       events={mockEvents}
+      // not required
       statuses={mockStatuses}
     />
     // ....
@@ -134,10 +137,10 @@ type TimelineCalendarProps = {
   statuses?: StatusType[] | string[];
   theme?: Theme; // 'dark' | 'light'  [default: 'light']
   cellSize?: string; // f.e. '40px' [default: flexible]
-  accentColor?: string; // '#FF0000' [default: '#a7bac3']
-  sidebarWidth?: number; // 240 [default: 200]
+  accentColor?: string; // f.e. '#FF0000' [default: '#a7bac3']
+  sidebarWidth?: number; // f.e. 240 [default: 200]
   lang: Locale; // 'en' | 'ru' [default: 'en']
-  currentDate?: string; // '2020-12-30' [default: today]
+  currentDate?: string; // f.e. '2020-12-30' [default: today]
   openedSidebar: boolean; // true | false  [default: true]
 };
 
