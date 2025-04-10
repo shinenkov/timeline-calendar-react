@@ -9,7 +9,7 @@ export type UserWithRangeType = {
 
 export type Department = {
   id: number;
-  manager: string;
+  manager?: string;
   name: string;
 };
 

@@ -122,7 +122,7 @@ type StatusType = {
 
 type Department = {
   id: number;
-  manager: string;
+  manager?: string;
   name: string;
 };
 
