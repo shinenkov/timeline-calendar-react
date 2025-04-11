@@ -1,6 +1,7 @@
 import TimelineCalendarWrapper from "./TimelineCalendar";
 import {
   TimelineCalendarProps,
+  TimelineOptions,
   Department,
   User,
   RangeType,
@@ -12,6 +13,7 @@ import {
 
 export type {
   TimelineCalendarProps,
+  TimelineOptions,
   User,
   RangeType,
   EventType,
