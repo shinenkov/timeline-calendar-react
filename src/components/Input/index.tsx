@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './input.module.css';
 
 type InputProps = {
   onChange: (
@@ -23,12 +24,8 @@ function Input({
     <input
       type="text"
       placeholder={label}
-      className={`input${className ? ' ' + className : ''}`}
+      className={`${styles.input}${className ? ' ' + className : ''}`}
       style={{
-        background: 'transparent',
-        minWidth: '200px',
-        height: '30px',
-        width: '100%',
         ...style,
       }}
       data-testid={dataTestid}
