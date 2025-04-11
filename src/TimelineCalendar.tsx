@@ -28,6 +28,7 @@ function TimelineCalendarWrapper(props: TimelineCalendarWrapperProps) {
     theme = defaultTheme,
     cellSize,
     lang,
+    hideFilters,
     accentColor = defaultColors[theme].buttonBg,
     sidebarWidth = 200,
   } = props;
@@ -89,22 +90,26 @@ function TimelineCalendarWrapper(props: TimelineCalendarWrapperProps) {
   return (
     <div className={styles.calendar} data-testid="timeline-calendar">
       <FlexBox type="flex" direction="column">
-        <Filter
-          theme={theme}
-          currentDate={currentDate}
-          events={currentEvents}
-          statuses={currentStatuses}
-          onDateChange={(newDate) => {
-            if (isSameDate(newDate, currentDate)) return;
-            setIsLoading(true);
-            setCurrentDate(newDate);
-          }}
-          onSearch={handleChangeSearch}
-          handleEventSelect={setSelectedEvents}
-          handleStatusSelect={setSelectedStatuses}
-          accentColor={accentColor}
-          lang={lang}
-        />
+        <>
+          {!hideFilters && (
+            <Filter
+              theme={theme}
+              currentDate={currentDate}
+              events={currentEvents}
+              statuses={currentStatuses}
+              onDateChange={(newDate) => {
+                if (isSameDate(newDate, currentDate)) return;
+                setIsLoading(true);
+                setCurrentDate(newDate);
+              }}
+              onSearch={handleChangeSearch}
+              handleEventSelect={setSelectedEvents}
+              handleStatusSelect={setSelectedStatuses}
+              accentColor={accentColor}
+              lang={lang}
+            />
+          )}
+        </>
         <FlexBox size={12} padding={1}>
           <Wrapper
             theme={theme}

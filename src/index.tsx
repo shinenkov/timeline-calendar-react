@@ -32,6 +32,7 @@ export type TimelineCalendarProps = {
   sidebarWidth?: number;
   openedSidebar?: boolean;
   currentDate?: string;
+  hideFilters?: boolean;
 };
 
 const TimelineCalendar = (props: TimelineCalendarProps) => {
@@ -48,6 +49,7 @@ const TimelineCalendar = (props: TimelineCalendarProps) => {
     sidebarWidth,
     currentDate,
     openedSidebar = true,
+    hideFilters = false,
   } = props;
 
   return (
@@ -64,6 +66,7 @@ const TimelineCalendar = (props: TimelineCalendarProps) => {
       accentColor={accentColor}
       openedSidebar={openedSidebar}
       currentDate={currentDate}
+      hideFilters={hideFilters}
     />
   );
 };

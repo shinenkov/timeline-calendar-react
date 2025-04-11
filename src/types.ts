@@ -64,6 +64,7 @@ export type TimelineCalendarWrapperProps = {
   lang: Locale;
   currentDate?: string;
   openedSidebar: boolean;
+  hideFilters?: boolean;
 };
 
 export type Theme = "dark" | "light";
