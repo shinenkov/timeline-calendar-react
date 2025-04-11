@@ -41,7 +41,7 @@
 }
 
 .selectedText::after {
-  content: '';
+  content: "";
   position: absolute;
   right: 10px;
   top: 16px;
@@ -102,7 +102,7 @@ li {
 }
 
 .checkmark:after {
-  content: '';
+  content: "";
   position: absolute;
   display: none;
 }

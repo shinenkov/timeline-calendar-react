@@ -1,9 +1,9 @@
-import dayjs from 'dayjs';
-import { Locale, Theme } from '../../../../types';
-import { defaultColors, defaultTheme } from '../../../../utils';
-import { locale } from '../../../../locale';
-import classNames from 'classnames';
-import styles from '../../../../timeline.module.css';
+import dayjs from "dayjs";
+import { Locale, Theme } from "../../../../types";
+import { defaultColors, defaultTheme } from "../../../../utils";
+import { locale } from "../../../../locale";
+import classNames from "classnames";
+import styles from "../../../../timeline.module.css";
 
 type TooltipContentProps = {
   name: string;
@@ -42,8 +42,8 @@ const TooltipContent = (props: TooltipContentProps) => {
         className={classNames(styles.text, styles.subtitle)}
         style={{ color: defaultColors[theme ?? defaultTheme].textSecondary }}
       >
-        {locale[lang].from} {dayjs(startDate).format('DD.MM.YYYY')}{' '}
-        {locale[lang].to} {dayjs(endDate).format('DD.MM.YYYY')}
+        {locale[lang].from} {dayjs(startDate).format("DD.MM.YYYY")}{" "}
+        {locale[lang].to} {dayjs(endDate).format("DD.MM.YYYY")}
       </div>
       {statusLabel && (
         <div

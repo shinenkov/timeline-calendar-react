@@ -9,7 +9,8 @@ export default defineConfig({
     react(),
     dts({
       insertTypesEntry: true,
-      outDir: "dist", 
+      outDir: "dist",
+      include: ["src/**/*.ts", "src/**/*.tsx"],
     }),
     cssInjectedByJsPlugin(),
   ],

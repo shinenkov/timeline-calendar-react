@@ -1,24 +1,24 @@
-import { useEffect } from 'react';
-import { FlexBox } from './components/FlexBox';
-import { defaultColors, defaultTheme, isSameDate } from './utils';
-import { useTimelineCalendar } from './hooks/useTimelineCalendar';
-import { TimelineCalendarProps } from './types';
-import Filter from './ui/Filter';
-import Wrapper from './ui/Wrapper';
-import styles from './timeline.module.css';
-import dayjs from 'dayjs';
-import customParseFormat from 'dayjs/plugin/customParseFormat';
-import isBetween from 'dayjs/plugin/isBetween';
-import weekday from 'dayjs/plugin/weekday';
-import utc from 'dayjs/plugin/utc';
-import ruRu from 'dayjs/locale/ru';
-import enEn from 'dayjs/locale/en';
+import { useEffect } from "react";
+import { FlexBox } from "./components/FlexBox";
+import { defaultColors, defaultTheme, isSameDate } from "./utils";
+import { useTimelineCalendar } from "./hooks/useTimelineCalendar";
+import { TimelineCalendarWrapperProps } from "./types";
+import Filter from "./ui/Filter";
+import Wrapper from "./ui/Wrapper";
+import styles from "./timeline.module.css";
+import dayjs from "dayjs";
+import customParseFormat from "dayjs/plugin/customParseFormat";
+import isBetween from "dayjs/plugin/isBetween";
+import weekday from "dayjs/plugin/weekday";
+import utc from "dayjs/plugin/utc";
+import ruRu from "dayjs/locale/ru";
+import enEn from "dayjs/locale/en";
 
 /**
  * TimelineCalendar Wrapper
  * @returns TimelineCalendar Component
  */
-function TimelineCalendarWrapper(props: TimelineCalendarProps) {
+function TimelineCalendarWrapper(props: TimelineCalendarWrapperProps) {
   dayjs.extend(customParseFormat);
   dayjs.extend(isBetween);
   dayjs.extend(weekday);
@@ -33,9 +33,9 @@ function TimelineCalendarWrapper(props: TimelineCalendarProps) {
   } = props;
 
   useEffect(() => {
-    if (lang === 'en') {
+    if (lang === "en") {
       dayjs.locale(enEn);
-    } else if (lang === 'ru') {
+    } else if (lang === "ru") {
       dayjs.locale(ruRu);
     }
   }, [lang]);
@@ -68,8 +68,8 @@ function TimelineCalendarWrapper(props: TimelineCalendarProps) {
   }, [updateFilteredData]);
 
   useEffect(() => {
-    window.addEventListener('resize', getTdWidth);
-    return () => window.removeEventListener('resize', getTdWidth);
+    window.addEventListener("resize", getTdWidth);
+    return () => window.removeEventListener("resize", getTdWidth);
   }, [getTdWidth]);
 
   useEffect(() => {

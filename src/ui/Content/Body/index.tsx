@@ -4,11 +4,11 @@ import {
   StatusType,
   Theme,
   UserWithRangeType,
-} from '../../../types';
-import { FlexBox } from '../../../components/FlexBox';
-import { defaultTheme } from '../../../utils';
-import ListDays from './ListDays';
-import styles from '../../../timeline.module.css';
+} from "../../../types";
+import { FlexBox } from "../../../components/FlexBox";
+import { defaultTheme } from "../../../utils";
+import ListDays from "./ListDays";
+import styles from "../../../timeline.module.css";
 
 type BodyContentProps = {
   userWithRange: UserWithRangeType[];

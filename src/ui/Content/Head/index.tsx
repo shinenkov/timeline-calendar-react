@@ -1,11 +1,11 @@
-import dayjs from 'dayjs';
-import { defaultTheme } from '../../../utils';
-import { Item } from '../../../components/Item';
-import { Locale, Theme } from '../../../types';
-import { FlexBox } from '../../../components/FlexBox';
-import { getDaysArray } from '../utils';
-import classNames from 'classnames';
-import styles from '../../../timeline.module.css';
+import dayjs from "dayjs";
+import { defaultTheme } from "../../../utils";
+import { Item } from "../../../components/Item";
+import { Locale, Theme } from "../../../types";
+import { FlexBox } from "../../../components/FlexBox";
+import { getDaysArray } from "../utils";
+import classNames from "classnames";
+import styles from "../../../timeline.module.css";
 
 type HeadContentProps = {
   currentDate: string;

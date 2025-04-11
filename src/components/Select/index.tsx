@@ -1,9 +1,9 @@
-import { CSSProperties, useEffect, useState, useId } from 'react';
-import { StatusType, EventType, Theme } from '../../types';
-import { defaultColors } from '../../utils';
-import { useSelectContext } from './context/index';
-import classNames from 'classnames';
-import styles from './select.module.css';
+import { CSSProperties, useEffect, useState, useId } from "react";
+import { StatusType, EventType, Theme } from "../../types";
+import { defaultColors } from "../../utils";
+import { useSelectContext } from "./context/index";
+import classNames from "classnames";
+import styles from "./select.module.css";
 
 type SelectProps = {
   theme: Theme;
@@ -37,7 +37,7 @@ function Select(props: SelectProps) {
   } = props;
   const [defaultSelectText, setDefaultSelectText] = useState(defaultText);
   const [selected, setSelected] = useState<EventType[] | StatusType[]>(
-    selectedOptions
+    selectedOptions,
   );
 
   const isOpen = activeSelectId === selectId;
@@ -62,9 +62,9 @@ function Select(props: SelectProps) {
     if (selectedOptions.length === optionsList.length) {
       setDefaultSelectText(defaultAll);
     }
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -87,7 +87,7 @@ function Select(props: SelectProps) {
         if (newSelected.length === optionsList.length) {
           setDefaultSelectText(defaultAll);
         } else {
-          setDefaultSelectText(newSelected.map((opt) => opt.label).join(', '));
+          setDefaultSelectText(newSelected.map((opt) => opt.label).join(", "));
         }
       } else {
         setDefaultSelectText(defaultText);
@@ -112,7 +112,7 @@ function Select(props: SelectProps) {
       <div
         className={classNames(
           styles.selectedText,
-          isOpen && styles.selectedTextActive
+          isOpen && styles.selectedTextActive,
         )}
         data-testid={dataTestid}
         onClick={handleListDisplay}
@@ -127,10 +127,10 @@ function Select(props: SelectProps) {
         <ul className={styles.selectOptions}>
           {optionsList.map((option) => {
             const isSelected = selected.some(
-              (item: EventType | StatusType) => item.id === option.id
+              (item: EventType | StatusType) => item.id === option.id,
             );
             const liStyle = {
-              '--hover-checkmark': defaultColors[theme].hoverCheckmark,
+              "--hover-checkmark": defaultColors[theme].hoverCheckmark,
               background: isSelected
                 ? defaultColors[theme].checkmark
                 : defaultColors[theme].bgPrimary,
@@ -140,7 +140,7 @@ function Select(props: SelectProps) {
               <li
                 className={
                   styles.selectOption +
-                  (isSelected ? ' ' + styles.selected : '')
+                  (isSelected ? " " + styles.selected : "")
                 }
                 data-name={option.label}
                 key={option.id}

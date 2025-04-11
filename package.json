@@ -18,7 +18,8 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "format": "prettier --write ./src"
   },
   "dependencies": {
     "classnames": "^2.5.1",

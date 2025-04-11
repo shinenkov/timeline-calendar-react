@@ -1,9 +1,9 @@
-import React from 'react';
-import styles from './input.module.css';
+import React from "react";
+import styles from "./input.module.css";
 
 type InputProps = {
   onChange: (
-    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => void;
   value: string;
   label: string;
@@ -24,7 +24,7 @@ function Input({
     <input
       type="text"
       placeholder={label}
-      className={`${styles.input}${className ? ' ' + className : ''}`}
+      className={`${styles.input}${className ? " " + className : ""}`}
       style={{
         ...style,
       }}

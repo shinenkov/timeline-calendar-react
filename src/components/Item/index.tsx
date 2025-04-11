@@ -1,6 +1,6 @@
-import { Theme } from '../../types';
-import { defaultColors } from '../../utils';
-import styles from '../../timeline.module.css';
+import { Theme } from "../../types";
+import { defaultColors } from "../../utils";
+import styles from "../../timeline.module.css";
 
 type ItemProps = {
   theme: Theme;
@@ -13,7 +13,7 @@ export const Item = (props: ItemProps) => {
   const { theme, sx, children, className, dataTestid } = props;
   return (
     <div
-      className={styles.item + (className ? ' ' + className : '')}
+      className={styles.item + (className ? " " + className : "")}
       data-testid={dataTestid}
       style={{
         backgroundColor: defaultColors[theme].bgPrimary,

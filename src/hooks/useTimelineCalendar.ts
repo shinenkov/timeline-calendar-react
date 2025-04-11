@@ -1,14 +1,14 @@
-import { useState, useEffect, useCallback, createRef } from 'react';
-import dayjs from 'dayjs';
+import { useState, useEffect, useCallback, createRef } from "react";
+import dayjs from "dayjs";
 import {
   EventType,
   StatusType,
-  TimelineCalendarProps,
+  TimelineCalendarWrapperProps,
   UserWithRangeType,
-} from '../types';
-import { compareUserWithRanges, stringToEvent } from '../utils';
+} from "../types";
+import { compareUserWithRanges, stringToEvent } from "../utils";
 
-export const useTimelineCalendar = (initialProps: TimelineCalendarProps) => {
+export const useTimelineCalendar = (initialProps: TimelineCalendarWrapperProps) => {
   const {
     ranges: rangesData,
     users: usersData,
@@ -25,9 +25,9 @@ export const useTimelineCalendar = (initialProps: TimelineCalendarProps) => {
   const thRef = createRef<HTMLDivElement>();
   const [openSidebar, setOpenSidebar] = useState(openedSidebar);
   const [currentDate, setCurrentDate] = useState(
-    propsCurrentDate ?? dayjs().toString()
+    propsCurrentDate ?? dayjs().toString(),
   );
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [currentEvents, setCurrentEvents] = useState<EventType[]>([]);
   const [selectedEvents, setSelectedEvents] = useState<EventType[]>([]);
   const [currentStatuses, setCurrentStatuses] = useState<StatusType[]>([]);
@@ -41,7 +41,7 @@ export const useTimelineCalendar = (initialProps: TimelineCalendarProps) => {
         selectedEvents,
         selectedStatuses,
         searchTerm,
-        departmentsData
+        departmentsData,
       );
       setFilteredData(data);
     }
@@ -62,7 +62,7 @@ export const useTimelineCalendar = (initialProps: TimelineCalendarProps) => {
 
   useEffect(() => {
     if (events) {
-      if (events.every((e) => typeof e === 'string')) {
+      if (events.every((e) => typeof e === "string")) {
         const curEvents = stringToEvent(events);
         setCurrentEvents(curEvents);
         setSelectedEvents(curEvents);
@@ -75,7 +75,7 @@ export const useTimelineCalendar = (initialProps: TimelineCalendarProps) => {
 
   useEffect(() => {
     if (statuses) {
-      if (statuses.every((e) => typeof e === 'string')) {
+      if (statuses.every((e) => typeof e === "string")) {
         const curStatuses = stringToEvent(statuses);
         setCurrentStatuses(curStatuses);
         setSelectedStatuses(curStatuses);

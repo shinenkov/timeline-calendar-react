@@ -1,16 +1,16 @@
-import { defaultTheme } from '../../utils';
+import { defaultTheme } from "../../utils";
 import {
   EventType,
   Locale,
   StatusType,
   Theme,
   UserWithRangeType,
-} from '../../types';
-import { FlexBox } from '../../components/FlexBox';
-import { BodyContent } from './Body';
-import HeadContent from './Head';
-import Loading from '../../components/Loading';
-import styles from '../../timeline.module.css';
+} from "../../types";
+import { FlexBox } from "../../components/FlexBox";
+import { BodyContent } from "./Body";
+import HeadContent from "./Head";
+import Loading from "../../components/Loading";
+import styles from "../../timeline.module.css";
 
 type ContentProps = {
   currentDate: string;
@@ -43,7 +43,7 @@ function Content(props: ContentProps) {
       type="flex"
       direction="column"
       className={styles.content}
-      style={{ overflow: cellSize ? 'overlay' : 'hidden' }}
+      style={{ overflow: cellSize ? "overlay" : "hidden" }}
     >
       <FlexBox size={12}>
         <HeadContent

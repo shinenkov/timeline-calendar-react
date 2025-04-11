@@ -1,15 +1,12 @@
-import { Theme } from '../../types';
-import {
-  defaultColors,
-  defaultTheme,
-} from '../../utils';
-import classNames from 'classnames';
-import styles from './button.module.css';
+import { Theme } from "../../types";
+import { defaultColors, defaultTheme } from "../../utils";
+import classNames from "classnames";
+import styles from "./button.module.css";
 
 type ButtonProps = {
   theme: Theme;
-  size?: 'small' | 'medium' | 'large';
-  variant?: 'contained' | 'text' | 'outlined';
+  size?: "small" | "medium" | "large";
+  variant?: "contained" | "text" | "outlined";
   disabled?: boolean;
   sx?: React.CSSProperties;
   onClick?: () => void;
@@ -22,8 +19,8 @@ export const Button = (props: ButtonProps) => {
   const {
     onClick,
     theme = defaultTheme,
-    size = 'medium',
-    variant = 'contained',
+    size = "medium",
+    variant = "contained",
     children,
     disabled = false,
     className,
@@ -38,11 +35,11 @@ export const Button = (props: ButtonProps) => {
       color: defaultColors[theme].bgSecondary,
     },
     text: {
-      backgroundColor: 'transparent',
+      backgroundColor: "transparent",
       color: accentColor,
     },
     outlined: {
-      backgroundColor: 'transparent',
+      backgroundColor: "transparent",
       color: accentColor,
       border: `1px solid ${accentColor}`,
     },

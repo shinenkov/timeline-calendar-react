@@ -1,11 +1,11 @@
-import { Tooltip } from 'react-tooltip';
-import { FlexBox } from '../../../../components/FlexBox';
-import { UserWithRangeType, Theme, Locale } from '../../../../types';
-import { defaultTheme, IRange } from '../../../../utils';
-import { Item } from '../../../../components/Item';
-import RangeItem from '../RangeItem';
-import TooltipContent from '../TooltipContent';
-import styles from './day.module.css';
+import { Tooltip } from "react-tooltip";
+import { FlexBox } from "../../../../components/FlexBox";
+import { UserWithRangeType, Theme, Locale } from "../../../../types";
+import { defaultTheme, IRange } from "../../../../utils";
+import { Item } from "../../../../components/Item";
+import RangeItem from "../RangeItem";
+import TooltipContent from "../TooltipContent";
+import styles from "./day.module.css";
 
 type DayOfMonthProps = {
   index: number;
@@ -36,18 +36,18 @@ const Day = (props: DayOfMonthProps) => {
     lang,
   } = props;
 
-  let dataId = `title-${user.name.replace(/\s/g, '').toLocaleLowerCase()}`;
+  let dataId = `title-${user.name.replace(/\s/g, "").toLocaleLowerCase()}`;
   if (range.startDate !== undefined) {
-    dataId += `-${range.startDate?.replace(/[^0-9\s]/gi, '')}`;
+    dataId += `-${range.startDate?.replace(/[^0-9\s]/gi, "")}`;
   }
   if (range.endDate !== undefined) {
-    dataId += `-${range.endDate?.replace(/[^0-9\s]/gi, '')}`;
+    dataId += `-${range.endDate?.replace(/[^0-9\s]/gi, "")}`;
   }
 
   const maxWidth = (100 * xsSize) / 12;
   const containerStyle = {
-    '--cell-width': cellSize,
-    '--max-width': `${maxWidth}%`,
+    "--cell-width": cellSize,
+    "--max-width": `${maxWidth}%`,
   } as React.CSSProperties;
 
   return (
@@ -56,7 +56,7 @@ const Day = (props: DayOfMonthProps) => {
       className={styles.flexContainer}
       style={containerStyle}
       pxSize={cellSize}
-      dataTestid='day-container'
+      dataTestid="day-container"
     >
       <Item theme={theme} className={styles.dayContainer}>
         {range.isStart && (
@@ -73,7 +73,7 @@ const Day = (props: DayOfMonthProps) => {
               id={dataId}
               opacity={1}
               className={styles.tooltip}
-              place={'bottom'}
+              place={"bottom"}
             >
               <TooltipContent
                 name={user.name}

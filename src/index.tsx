@@ -1,4 +1,4 @@
-import TimelineCalendarWrapper from './TimelineCalendar';
+import TimelineCalendarWrapper from "./TimelineCalendar";
 import {
   Department,
   User,
@@ -7,9 +7,20 @@ import {
   StatusType,
   Theme,
   Locale,
-} from './types';
+} from "./types";
 
-type CalendarProps = {
+export type {
+  TimelineCalendarProps,
+  User,
+  RangeType,
+  EventType,
+  StatusType,
+  Department,
+  Locale,
+  Theme,
+};
+
+type TimelineCalendarProps = {
   ranges: RangeType[];
   users: User[];
   departments?: Department[];
@@ -24,7 +35,7 @@ type CalendarProps = {
   currentDate?: string;
 };
 
-const TimelineCalendar = (props: CalendarProps) => {
+const TimelineCalendar = (props: TimelineCalendarProps) => {
   const {
     ranges,
     users,
@@ -33,7 +44,7 @@ const TimelineCalendar = (props: CalendarProps) => {
     statuses,
     theme,
     cellSize,
-    lang = 'en',
+    lang = "en",
     accentColor,
     sidebarWidth,
     currentDate,

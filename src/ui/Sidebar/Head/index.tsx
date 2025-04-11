@@ -1,11 +1,11 @@
-import { defaultTheme } from '../../../utils';
-import { Item } from '../../../components/Item';
-import { Theme } from '../../../types';
-import { FlexBox } from '../../../components/FlexBox';
-import { Button } from '../../../components/Button';
-import styles from '../../../timeline.module.css';
-import Next from '../../../icons/nextIcon';
-import Prev from '../../../icons/prevIcon';
+import { defaultTheme } from "../../../utils";
+import { Item } from "../../../components/Item";
+import { Theme } from "../../../types";
+import { FlexBox } from "../../../components/FlexBox";
+import { Button } from "../../../components/Button";
+import styles from "../../../timeline.module.css";
+import Next from "../../../icons/nextIcon";
+import Prev from "../../../icons/prevIcon";
 
 type HeadSidebarProps = {
   theme?: Theme;
@@ -21,28 +21,28 @@ function HeadSidebar(props: HeadSidebarProps) {
     <FlexBox type="flex" className={styles.headSidebar}>
       <Item
         theme={theme}
-        dataTestid='sidebar-head'
+        dataTestid="sidebar-head"
         sx={{
-          minHeight: '56px',
+          minHeight: "56px",
           border: 0,
-          width: '100%',
-          textAlign: 'left',
-          alignItems: 'center',
-          display: 'flex',
+          width: "100%",
+          textAlign: "left",
+          alignItems: "center",
+          display: "flex",
         }}
       >
         <Button
           theme={theme}
           onClick={onToggle}
-          size={'small'}
-          variant={'outlined'}
+          size={"small"}
+          variant={"outlined"}
           dataTestid="sidebar-toggle"
           accentColor={accentColor}
         >
           {opened ? (
-            <Prev fill={accentColor} width={'11px'} height={'11px'} />
+            <Prev fill={accentColor} width={"11px"} height={"11px"} />
           ) : (
-            <Next fill={accentColor} width={'11px'} height={'11px'} />
+            <Next fill={accentColor} width={"11px"} height={"11px"} />
           )}
         </Button>
       </Item>

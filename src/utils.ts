@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 import {
   type RangeType,
   type UserWithRangeType,
@@ -9,8 +9,8 @@ import {
   StatusType,
   Theme,
   Locale,
-} from './types';
-import { locale } from './locale';
+} from "./types";
+import { locale } from "./locale";
 
 export const createDayLabel = (n: number, lang: Locale) => {
   const cases = [2, 0, 1, 1, 1, 2];
@@ -30,54 +30,54 @@ export interface IRange extends Partial<RangeType> {
 
 export const isSameDate = (date1: string, date2: string) => {
   return (
-    dayjs(date1).format('DD-MM-YYYY') === dayjs(date2).format('DD-MM-YYYY')
+    dayjs(date1).format("DD-MM-YYYY") === dayjs(date2).format("DD-MM-YYYY")
   );
 };
 
-export const defaultTheme = 'light' as Theme;
+export const defaultTheme = "light" as Theme;
 
 export const eventColors = [
-  '#f44336', // red
-  '#2196f3', // blue
-  '#4caf50', // green
-  '#ffeb3b', // yellow
-  '#ff9800', // orange
-  '#9c27b0', // purple
-  '#673ab7', // indigo
-  '#3f51b5', // deep-purple
-  '#00bcd4', // cyan
-  '#8bc34a', // lime
-  '#ff5722', // deep-orange
+  "#f44336", // red
+  "#2196f3", // blue
+  "#4caf50", // green
+  "#ffeb3b", // yellow
+  "#ff9800", // orange
+  "#9c27b0", // purple
+  "#673ab7", // indigo
+  "#3f51b5", // deep-purple
+  "#00bcd4", // cyan
+  "#8bc34a", // lime
+  "#ff5722", // deep-orange
 ];
 
 export const defaultColors: Record<Theme, Record<string, string>> = {
   dark: {
-    bgPrimary: '#1e2123',
-    bgSecondary: '#252525',
-    textPrimary: '#ffffffb3',
-    textSecondary: '#a1b4d3',
-    eventColor: '#f44336',
-    statusColor: '#4caf50',
-    buttonBg: '#a7bac3',
-    boxShadow: '#00000099',
-    avatarBg: '#a7bac3',
-    avatarColor: '#000000',
-    checkmark: '#32373b',
-    hoverCheckmark: '#656565',
+    bgPrimary: "#1e2123",
+    bgSecondary: "#252525",
+    textPrimary: "#ffffffb3",
+    textSecondary: "#a1b4d3",
+    eventColor: "#f44336",
+    statusColor: "#4caf50",
+    buttonBg: "#a7bac3",
+    boxShadow: "#00000099",
+    avatarBg: "#a7bac3",
+    avatarColor: "#000000",
+    checkmark: "#32373b",
+    hoverCheckmark: "#656565",
   },
   light: {
-    bgPrimary: '#dbdbde',
-    bgSecondary: '#f3f3f3',
-    textPrimary: '#000000b3',
-    textSecondary: '#cccccc',
-    eventColor: '#f44336',
-    statusColor: '#4caf50',
-    buttonBg: '#455a64',
-    boxShadow: '#FFFFFFEA',
-    avatarBg: '#455a64',
-    avatarColor: '#FFFFFF',
-    checkmark: '#c0c3cd',
-    hoverCheckmark: '#7f7f7f',
+    bgPrimary: "#dbdbde",
+    bgSecondary: "#f3f3f3",
+    textPrimary: "#000000b3",
+    textSecondary: "#cccccc",
+    eventColor: "#f44336",
+    statusColor: "#4caf50",
+    buttonBg: "#455a64",
+    boxShadow: "#FFFFFFEA",
+    avatarBg: "#455a64",
+    avatarColor: "#FFFFFF",
+    checkmark: "#c0c3cd",
+    hoverCheckmark: "#7f7f7f",
   },
 };
 
@@ -103,24 +103,24 @@ export const stringToEvent = (events: string[]): EventType[] | StatusType[] => {
   return res;
 };
 
-type ValueType = 'label' | 'color';
+type ValueType = "label" | "color";
 type ArrayType = StatusType[] | EventType[] | Map<number, string>;
 
 export const getValue = (
   defaultValue: string,
   attribute?: number | string,
   type?: ValueType,
-  array?: ArrayType
+  array?: ArrayType,
 ): string | undefined => {
   if (attribute === undefined) {
     return defaultValue;
   }
 
-  if (typeof attribute === 'string') {
+  if (typeof attribute === "string") {
     return attribute;
   }
 
-  if (typeof attribute === 'number' && array) {
+  if (typeof attribute === "number" && array) {
     if (array instanceof Map) {
       return array.get(attribute) || defaultValue;
     }
@@ -137,13 +137,13 @@ export const getValue = (
 };
 
 export const searchReg = (value: string) =>
-  new RegExp(value.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&'), 'i');
+  new RegExp(value.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&"), "i");
 
 type EventMapType = Map<string | number, string>;
 
 // Helper functions
 const createEventMap = (events: EventType[]): EventMapType => {
-  if (events.every((s) => typeof s === 'string')) {
+  if (events.every((s) => typeof s === "string")) {
     return new Map(events.map((d, index) => [index, d as string]));
   }
   return new Map(events.map((d) => [d.id, d.label]));
@@ -152,26 +152,26 @@ const createEventMap = (events: EventType[]): EventMapType => {
 const isEventMatch = (
   event: RangeType,
   eventMap: EventMapType,
-  selectedEvents: EventType[]
+  selectedEvents: EventType[],
 ): boolean => {
-  if (typeof event.eventType === 'number') {
+  if (typeof event.eventType === "number") {
     return eventMap.has(event.eventType);
   }
   return selectedEvents.some(
-    (s) => (s as unknown as string) === event.eventType
+    (s) => (s as unknown as string) === event.eventType,
   );
 };
 
 const isStatusMatch = (
   event: RangeType,
   statusMap: EventMapType,
-  selectedStatuses: StatusType[]
+  selectedStatuses: StatusType[],
 ): boolean => {
-  if (typeof event.statusType === 'number') {
+  if (typeof event.statusType === "number") {
     return statusMap.has(event.statusType);
   }
   return selectedStatuses.some(
-    (s) => (s as unknown as string) === event.statusType
+    (s) => (s as unknown as string) === event.statusType,
   );
 };
 
@@ -182,7 +182,7 @@ export const compareUserWithRanges = (
   selectedEvents?: EventType[],
   selectedStatuses?: StatusType[],
   searchTerm?: string,
-  departments?: Department[]
+  departments?: Department[],
 ): UserWithRangeType[] => {
   if (!users) return [];
 
@@ -232,7 +232,7 @@ export const compareUserWithRanges = (
   return users.map((user) => ({
     id: user.id,
     name: user.name,
-    department: getValue('', user.department, undefined, departmentMap),
+    department: getValue("", user.department, undefined, departmentMap),
     events: userEventsMap?.get(user.id.toString()) || [],
   }));
 };
@@ -241,7 +241,7 @@ export const compareUserWithRanges = (
 export const compareRangesWithUser = (
   events: RangeType[] | null,
   users: User[],
-  departments?: Department[]
+  departments?: Department[],
 ): RangesWithUser[] => {
   if (!events) {
     return [];
@@ -259,11 +259,11 @@ export const compareRangesWithUser = (
     const user = userId ? userMap.get(userId) : undefined;
 
     if (user) {
-      let department = '';
+      let department = "";
       if (user.department !== undefined) {
-        if (typeof user.department === 'number') {
-          department = departmentMap.get(user.department) || '';
-        } else if (typeof user.department === 'string') {
+        if (typeof user.department === "number") {
+          department = departmentMap.get(user.department) || "";
+        } else if (typeof user.department === "string") {
           department = user.department;
         }
       }
@@ -277,7 +277,7 @@ export const compareRangesWithUser = (
         statusType: event.statusType,
         userId: event.userId,
         eventType: event.eventType,
-        comment: event.comment ?? '',
+        comment: event.comment ?? "",
       });
     }
 

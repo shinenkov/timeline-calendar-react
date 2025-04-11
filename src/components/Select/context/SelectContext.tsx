@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { SelectContext } from './SelectContextDefinition';
+import { useState } from "react";
+import { SelectContext } from "./SelectContextDefinition";
 
 export const SelectProvider = ({ children }: { children: React.ReactNode }) => {
   const [activeSelectId, setActiveSelectId] = useState<string | null>(null);

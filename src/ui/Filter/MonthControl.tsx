@@ -1,15 +1,15 @@
-import { useCallback } from 'react';
-import dayjs from 'dayjs';
-import { Button } from '../../components/Button';
-import { Locale, Theme } from '../../types';
-import { defaultColors, defaultTheme } from '../../utils';
-import { locale } from '../../locale';
-import { FlexBox } from '../../components/FlexBox';
-import classNames from 'classnames';
-import styles from './filter.module.css';
-import globalStyles from '../../timeline.module.css';
-import Next from '../../icons/nextIcon';
-import Prev from '../../icons/prevIcon';
+import { useCallback } from "react";
+import dayjs from "dayjs";
+import { Button } from "../../components/Button";
+import { Locale, Theme } from "../../types";
+import { defaultColors, defaultTheme } from "../../utils";
+import { locale } from "../../locale";
+import { FlexBox } from "../../components/FlexBox";
+import classNames from "classnames";
+import styles from "./filter.module.css";
+import globalStyles from "../../timeline.module.css";
+import Next from "../../icons/nextIcon";
+import Prev from "../../icons/prevIcon";
 
 type MonthControlProps = {
   currentDate: string;
@@ -32,7 +32,7 @@ function MonthControl({
 
   const changeCurrentMonth = (direction: boolean) => {
     const newDate = dayjs(currentDate)
-      .add(direction ? 1 : -1, 'month')
+      .add(direction ? 1 : -1, "month")
       .toString();
     onDateChange(newDate);
   };
@@ -58,8 +58,8 @@ function MonthControl({
         >
           <Prev
             fill={defaultColors[theme].bgSecondary}
-            width={'12px'}
-            height={'11px'}
+            width={"12px"}
+            height={"11px"}
           />
         </Button>
         <div className={styles.separator} />
@@ -72,14 +72,14 @@ function MonthControl({
         >
           <Next
             fill={defaultColors[theme].bgSecondary}
-            width={'12px'}
-            height={'11px'}
+            width={"12px"}
+            height={"11px"}
           />
         </Button>
       </FlexBox>
       <FlexBox type="flex" className={styles.dateContainer}>
         <div className={classNames(globalStyles.text, globalStyles.bodyTitle)}>
-          {dayjs(currentDate).locale(lang).format('MMMM YYYY')}
+          {dayjs(currentDate).locale(lang).format("MMMM YYYY")}
         </div>
       </FlexBox>
     </FlexBox>

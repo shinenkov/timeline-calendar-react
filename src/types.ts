@@ -30,7 +30,7 @@ export type RangeType = {
 };
 
 export type RangesWithUser = RangeType &
-  Pick<User, 'name' | 'department'> & {
+  Pick<User, "name" | "department"> & {
     quantity?: number;
     decision?: number;
     department?: string;
@@ -51,7 +51,7 @@ export type EventType = {
   color?: string;
 };
 
-export type TimelineCalendarProps = {
+export type TimelineCalendarWrapperProps = {
   ranges: RangeType[];
   users: User[];
   departments?: Department[];
@@ -66,6 +66,6 @@ export type TimelineCalendarProps = {
   openedSidebar: boolean;
 };
 
-export type Theme = 'dark' | 'light';
+export type Theme = "dark" | "light";
 
-export type Locale = 'en' | 'ru';
+export type Locale = "en" | "ru";

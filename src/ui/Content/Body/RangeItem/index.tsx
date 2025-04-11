@@ -1,5 +1,5 @@
-import { IRange } from '../../../../utils';
-import { getRangeStyle, getClassName } from '../../utils';
+import { IRange } from "../../../../utils";
+import { getRangeStyle, getClassName } from "../../utils";
 
 type ItemDataProps = {
   dataId: string;
@@ -17,7 +17,7 @@ const RangeItem = (props: ItemDataProps) => {
       data-tooltip-id={dataId}
       className={getClassName(
         range.isStartPrevMonth ?? false,
-        range.isEndNextMonth ?? false
+        range.isEndNextMonth ?? false,
       )}
       style={getRangeStyle(
         index + 1,
@@ -30,7 +30,7 @@ const RangeItem = (props: ItemDataProps) => {
       )}
     >
       {range.startDate === range.endDate || range.width! <= 64
-        ? ''
+        ? ""
         : eventLabel}
     </div>
   );

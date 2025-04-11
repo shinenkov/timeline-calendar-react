@@ -1,12 +1,12 @@
-import { FlexBox } from '../../components/FlexBox';
-import Select from '../../components/Select';
-import { SelectProvider } from '../../components/Select/context/SelectContext';
-import { EventType, Locale, StatusType, Theme } from '../../types';
-import { locale } from '../../locale';
-import { defaultTheme } from '../../utils';
-import MonthControl from './MonthControl';
-import Search from './Search';
-import styles from './filter.module.css';
+import { FlexBox } from "../../components/FlexBox";
+import Select from "../../components/Select";
+import { SelectProvider } from "../../components/Select/context/SelectContext";
+import { EventType, Locale, StatusType, Theme } from "../../types";
+import { locale } from "../../locale";
+import { defaultTheme } from "../../utils";
+import MonthControl from "./MonthControl";
+import Search from "./Search";
+import styles from "./filter.module.css";
 
 type FilterProps = {
   currentDate: string;

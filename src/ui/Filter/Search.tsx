@@ -1,7 +1,7 @@
-import React, { useState, useCallback, CSSProperties } from 'react';
-import Input from '../../components/Input';
-import { locale } from '../../locale';
-import { Locale } from '../../types';
+import React, { useState, useCallback, CSSProperties } from "react";
+import Input from "../../components/Input";
+import { locale } from "../../locale";
+import { Locale } from "../../types";
 
 type SearchProps = {
   onSearch: (searchTerm: string) => void;
@@ -10,7 +10,7 @@ type SearchProps = {
 };
 
 function Search({ onSearch, lang, style }: SearchProps) {
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
 
   const handleChangeSearch = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
@@ -18,7 +18,7 @@ function Search({ onSearch, lang, style }: SearchProps) {
       setSearch(value);
       onSearch(value);
     },
-    [onSearch]
+    [onSearch],
   );
 
   return (

@@ -1,15 +1,15 @@
-import { defaultTheme } from '../utils';
+import { defaultTheme } from "../utils";
 import {
   EventType,
   Locale,
   StatusType,
   Theme,
   UserWithRangeType,
-} from '../types';
-import { FlexBox } from '../components/FlexBox';
-import Sidebar from './Sidebar';
-import Content from './Content';
-import styles from '../timeline.module.css';
+} from "../types";
+import { FlexBox } from "../components/FlexBox";
+import Sidebar from "./Sidebar";
+import Content from "./Content";
+import styles from "../timeline.module.css";
 
 type WrapperProps = {
   isLoading: boolean;
@@ -51,8 +51,8 @@ function Wrapper(props: WrapperProps) {
       <FlexBox
         size={openSidebar ? 2 : 12}
         className={styles.sidebar}
-        dataTestid='sidebar-wrapper'
-        pxSize={!openSidebar ? '52px' : `${sidebarWidth}px`}
+        dataTestid="sidebar-wrapper"
+        pxSize={!openSidebar ? "52px" : `${sidebarWidth}px`}
       >
         <Sidebar
           theme={theme}
@@ -66,7 +66,7 @@ function Wrapper(props: WrapperProps) {
         className={styles.content}
         size={openSidebar ? 10 : 12}
         pxSize={
-          !openSidebar ? 'calc(100% - 52px)' : `calc(100% - ${sidebarWidth}px)`
+          !openSidebar ? "calc(100% - 52px)" : `calc(100% - ${sidebarWidth}px)`
         }
       >
         <Content
