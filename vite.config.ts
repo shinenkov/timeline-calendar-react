@@ -17,7 +17,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: path.resolve(__dirname, "src/index.tsx"),
-      name: 'timeline-calendar-react',
+      name: "timeline-calendar-react",
       formats: ["es", "umd"],
       fileName: (format) => `timeline-calendar-react.${format}.js`,
     },

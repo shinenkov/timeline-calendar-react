@@ -8,7 +8,9 @@ import {
 } from "../types";
 import { compareUserWithRanges, stringToEvent } from "../utils";
 
-export const useTimelineCalendar = (initialProps: TimelineCalendarWrapperProps) => {
+export const useTimelineCalendar = (
+  initialProps: TimelineCalendarWrapperProps,
+) => {
   const {
     ranges: rangesData,
     users: usersData,

@@ -10,7 +10,6 @@ import {
 } from "./types";
 
 export type {
-  TimelineCalendarProps,
   User,
   RangeType,
   EventType,
@@ -20,7 +19,7 @@ export type {
   Theme,
 };
 
-type TimelineCalendarProps = {
+export type TimelineCalendarProps = {
   ranges: RangeType[];
   users: User[];
   departments?: Department[];
