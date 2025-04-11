@@ -67,6 +67,26 @@ export type TimelineCalendarWrapperProps = {
   hideFilters?: boolean;
 };
 
+export type TimelineCalendarProps = {
+  ranges: RangeType[];
+  users: User[];
+  departments?: Department[];
+  events?: EventType[] | string[];
+  statuses?: StatusType[] | string[];
+  options?: TimelineOptions;
+};
+
+export type TimelineOptions = {
+  theme?: Theme;
+  cellSize?: string;
+  lang?: Locale;
+  accentColor?: string;
+  sidebarWidth?: number;
+  openedSidebar?: boolean;
+  currentDate?: string;
+  hideFilters?: boolean;
+};
+
 export type Theme = "dark" | "light";
 
 export type Locale = "en" | "ru";

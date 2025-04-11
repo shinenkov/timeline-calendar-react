@@ -23,7 +23,7 @@ function HeadSidebar(props: HeadSidebarProps) {
         theme={theme}
         dataTestid="sidebar-head"
         sx={{
-          minHeight: "56px",
+          minHeight: "40px",
           border: 0,
           width: "100%",
           textAlign: "left",

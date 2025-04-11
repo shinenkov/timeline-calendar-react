@@ -1,6 +1,6 @@
 {
   "name": "timeline-calendar-react",
-  "version": "0.0.2",
+  "version": "0.0.2-beta.1",
   "license": "MIT",
   "files": [
     "dist"
@@ -55,5 +55,7 @@
     "vite": "^6.0.5",
     "vite-plugin-css-injected-by-js": "^3.5.2",
     "vitest": "^3.1.1"
-  }
+  },
+  "keywords": ["timeline", "calendar", "month-calendar", "react", "component", "timeline-calendar"],
+  "description": "A timeline calendar component for React, built with TypeScript and Vite."
 }

@@ -1,4 +1,5 @@
 # Timeline Calendar React
+![ScreenShot](https://private-user-images.githubusercontent.com/40626065/432827706-979eb577-b0fa-442c-b457-009b42834ab7.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDQzODU1NDgsIm5iZiI6MTc0NDM4NTI0OCwicGF0aCI6Ii80MDYyNjA2NS80MzI4Mjc3MDYtOTc5ZWI1NzctYjBmYS00NDJjLWI0NTctMDA5YjQyODM0YWI3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA0MTElMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNDExVDE1MjcyOFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiYTg5MzlmM2M5ZGE3MDkyZmI5OWEzMTJhOTY4MjU4ODA3ZDQ1YzVhMDJmNDgyYTIzMTg2OWJlNjFmMzI4ZDcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.xv0DTz2mmoCBeVWtEbGpi3ONuykRBIfKTGOn6KO6qt4)
 
 `timeline-calendar-react` is a customizable React library for displaying timeline-based calendars. It supports features like user ranges, events, statuses, and more, with a flexible and responsive design.
 
@@ -76,21 +77,28 @@ export default App;
 
 ### `TimelineCalendarProps`
 
-| Prop Name       | Type                          | Required | Default       | Description                                                                 |
+| Prop Name        | Type                          | Required | Default       | Description                                                                 |
 |------------------|-------------------------------|----------|---------------|-----------------------------------------------------------------------------|
-| `ranges`        | `RangeType[]`                | Yes      | -             | Array of ranges to display on the calendar.                                |
-| `users`         | `User[]`                     | Yes      | -             | Array of users to display in the sidebar.                                  |
-| `departments`   | `Department[]`               | No       | `undefined`   | Array of departments to display under user names.                          |
-| `events`        | `EventType[] or string[]`     | No       | `undefined`   | Array of events to display with custom labels and colors.                  |
-| `statuses`      | `StatusType[] or string[]`    | No       | `undefined`   | Array of statuses to display with custom labels and colors.                |
-| `theme`         | `"dark" or "light"`           | No       | `"light"`     | Theme of the calendar.                                                     |
-| `cellSize`      | `string`                     | No       | Flexible      | Size of each calendar cell (e.g., `'40px'`).                                |
-| `accentColor`   | `string`                     | No       | `'#a7bac3'`   | Accent color for buttons and highlights.                                   |
-| `sidebarWidth`  | `number`                     | No       | `200`         | Width of the sidebar in pixels.                                            |
-| `lang`          | `"en" or "ru"`                | No      | `"en"`        | Language for the calendar (English or Russian).                            |
-| `currentDate`   | `string (format "YYYY-MM-DD")`                     | No       | `today`       | Current date to display (e.g., `'2025-04-01'`).                            |
-| `openedSidebar` | `boolean`                    | No       | `true`        | Whether the sidebar is open by default.                                    |
-| `hideFilters`   | `boolean`                    | No       | `false`       | Whether to hide the filters section.                                       |
+| `ranges`         | `RangeType[]`                 | Yes      | -             | Array of ranges to display on the calendar.                                 |
+| `users`          | `User[]`                      | Yes      | -             | Array of users to display in the sidebar.                                   |
+| `departments`    | `Department[]`                | No       | `undefined`   | Array of departments to display under user names.                           |
+| `events`         | `EventType[] or string[]`     | No       | `undefined`   | Array of events to display with custom labels and colors.                   |
+| `statuses`       | `StatusType[] or string[]`    | No       | `undefined`   | Array of statuses to display with custom labels and colors.                 |
+| `options`        | `TimelineOptions`             | No       | `undefined`   | render Options                                                              |
+
+---
+
+### `TimelineOptions`
+| Prop Name       | Type                           | Required | Default       | Description                                                                 |
+|-----------------|--------------------------------|----------|---------------|-----------------------------------------------------------------------------|
+| `theme`         | `"dark" or "light"`            | No       | `"light"`     | Theme of the calendar.                                                      |
+| `cellSize`      | `string`                       | No       | Flexible      | Size of each calendar cell (e.g., `'40px'`).                                |
+| `accentColor`   | `string`                       | No       | `'#a7bac3'`   | Accent color for buttons and highlights.                                    |
+| `sidebarWidth`  | `number`                       | No       | `200`         | Width of the sidebar in pixels.                                             |
+| `lang`          | `"en" or "ru"`                 | No       | `"en"`        | Language for the calendar (English or Russian).                             |
+| `currentDate`   | `string (format "YYYY-MM-DD")` | No       | `today`       | Current date to display (e.g., `'2025-04-01'`).                             |
+| `openedSidebar` | `boolean`                      | No       | `true`        | Whether the sidebar is open by default.                                     |
+| `hideFilters`   | `boolean`                      | No       | `false`       | Whether to hide the filters section.                                        |
 
 ---
 
@@ -107,14 +115,16 @@ type TimelineCalendarProps = {
   events?: EventType[] | string[];
   // if specified, then displayed instead of the base colors with the specified labels
   statuses?: StatusType[] | string[];
-  theme?: Theme; // 'dark' | 'light'  [default: 'light']
-  cellSize?: string; // f.e. '40px' [default: flexible]
-  accentColor?: string; // f.e. '#FF0000' [default: '#a7bac3']
-  sidebarWidth?: number; // f.e. 240 [default: 200]
-  lang: Locale; // 'en' | 'ru' [default: 'en']
-  currentDate?: string; // f.e. '2020-12-30' [default: today]
-  openedSidebar: boolean; // true | false  [default: true]
-  hideFilters: boolean; // true | false  [default: false]
+  options: {
+    theme?: Theme; // 'dark' | 'light'  [default: 'light']
+    cellSize?: string; // f.e. '40px' [default: flexible]
+    accentColor?: string; // f.e. '#FF0000' [default: '#a7bac3']
+    sidebarWidth?: number; // f.e. 240 [default: 200]
+    lang: Locale; // 'en' | 'ru' [default: 'en']
+    currentDate?: string; // f.e. '2020-12-30' [default: today]
+    openedSidebar: boolean; // true | false  [default: true]
+    hideFilters: boolean; // true | false  [default: false]
+  } as TimelineOptions;
 };
 ```
 
@@ -176,6 +186,20 @@ type StatusType = {
 };
 ```
 
+### `TimelineOptions`
+
+```typescript
+type TimelineOptions = {
+  theme?: Theme;
+  cellSize?: string;
+  lang?: Locale;
+  accentColor?: string;
+  sidebarWidth?: number;
+  openedSidebar?: boolean;
+  currentDate?: string;
+  hideFilters?: boolean;
+}
+```
 ---
 
 ## Features

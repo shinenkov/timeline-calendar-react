@@ -1,5 +1,6 @@
 import TimelineCalendarWrapper from "./TimelineCalendar";
 import {
+  TimelineCalendarProps,
   Department,
   User,
   RangeType,
@@ -10,6 +11,7 @@ import {
 } from "./types";
 
 export type {
+  TimelineCalendarProps,
   User,
   RangeType,
   EventType,
@@ -19,38 +21,8 @@ export type {
   Theme,
 };
 
-export type TimelineCalendarProps = {
-  ranges: RangeType[];
-  users: User[];
-  departments?: Department[];
-  events?: EventType[] | string[];
-  statuses?: StatusType[] | string[];
-  theme?: Theme;
-  cellSize?: string;
-  lang?: Locale;
-  accentColor?: string;
-  sidebarWidth?: number;
-  openedSidebar?: boolean;
-  currentDate?: string;
-  hideFilters?: boolean;
-};
-
 const TimelineCalendar = (props: TimelineCalendarProps) => {
-  const {
-    ranges,
-    users,
-    departments,
-    events,
-    statuses,
-    theme,
-    cellSize,
-    lang = "en",
-    accentColor,
-    sidebarWidth,
-    currentDate,
-    openedSidebar = true,
-    hideFilters = false,
-  } = props;
+  const { ranges, users, departments, events, statuses, options } = props;
 
   return (
     <TimelineCalendarWrapper
@@ -59,14 +31,14 @@ const TimelineCalendar = (props: TimelineCalendarProps) => {
       departments={structuredClone(departments)}
       events={events}
       statuses={statuses}
-      theme={theme}
-      cellSize={cellSize}
-      lang={lang}
-      sidebarWidth={sidebarWidth}
-      accentColor={accentColor}
-      openedSidebar={openedSidebar}
-      currentDate={currentDate}
-      hideFilters={hideFilters}
+      theme={options?.theme ?? "light"}
+      cellSize={options?.cellSize}
+      lang={options?.lang ?? "en"}
+      sidebarWidth={options?.sidebarWidth}
+      accentColor={options?.accentColor}
+      openedSidebar={options?.openedSidebar ?? true}
+      currentDate={options?.currentDate}
+      hideFilters={options?.hideFilters ?? false}
     />
   );
 };
