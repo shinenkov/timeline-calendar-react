@@ -1,3 +1,4 @@
+import React, { memo } from "react";
 import { defaultTheme } from "../utils";
 import {
   EventType,
@@ -11,7 +12,7 @@ import Sidebar from "./Sidebar";
 import Content from "./Content";
 import styles from "../timeline.module.css";
 
-type WrapperProps = {
+type TableProps = {
   isLoading: boolean;
   currentDate: string;
   thRef: React.RefObject<HTMLDivElement | null>;
@@ -28,7 +29,7 @@ type WrapperProps = {
   lang: Locale;
 };
 
-function Wrapper(props: WrapperProps) {
+const Table = memo((props: TableProps) => {
   const {
     isLoading,
     currentDate,
@@ -84,6 +85,22 @@ function Wrapper(props: WrapperProps) {
       </FlexBox>
     </FlexBox>
   );
-}
+});
 
-export default Wrapper;
+export default memo(Table, (prevProps, nextProps) => {
+  return (
+    prevProps.isLoading === nextProps.isLoading &&
+    prevProps.currentDate === nextProps.currentDate &&
+    prevProps.thRef === nextProps.thRef &&
+    prevProps.theme === nextProps.theme &&
+    prevProps.cellSize === nextProps.cellSize &&
+    prevProps.userWithRange === nextProps.userWithRange &&
+    prevProps.tdWidth === nextProps.tdWidth &&
+    prevProps.events === nextProps.events &&
+    prevProps.statuses === nextProps.statuses &&
+    prevProps.openSidebar === nextProps.openSidebar &&
+    prevProps.accentColor === nextProps.accentColor &&
+    prevProps.sidebarWidth === nextProps.sidebarWidth &&
+    prevProps.lang === nextProps.lang
+  );
+});

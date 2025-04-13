@@ -11,6 +11,7 @@ import dayjs from "dayjs";
 import { FlexBox } from "../../../../components/FlexBox";
 import { getRangesArray } from "./utils";
 import Day from "../Day";
+import EmptyDay from "../EmptyDay";
 
 type ListRangesByUsersProps = {
   userWithRange: UserWithRangeType[];
@@ -45,7 +46,7 @@ const ListDays: React.FC<ListRangesByUsersProps> = React.memo((props) => {
               currentDate,
               cellSize ? Number(cellSize.replace("px", "")) : tdWidth,
             ).map((range, index) => {
-              if (range.eventType !== undefined) {
+              if (range.eventType !== undefined && range.isStart) {
                 const eventLabel = getValue(
                   "",
                   range.eventType,
@@ -71,7 +72,6 @@ const ListDays: React.FC<ListRangesByUsersProps> = React.memo((props) => {
                   statuses,
                 );
                 return (
-                  // <div key={`${user.name}.${index}`} style={{ background: '#ff0000',  width: `${(100 * xsSize) / 12}%` }}></div>
                   <Day
                     key={`${user.name}.${index}`}
                     user={user}
@@ -89,15 +89,11 @@ const ListDays: React.FC<ListRangesByUsersProps> = React.memo((props) => {
                 );
               } else {
                 return (
-                  <Day
-                    key={`${user.name}.${index}`}
-                    user={user}
+                  <EmptyDay
                     xsSize={xsSize}
-                    range={range}
-                    index={index}
+                    key={`${user.name}.${index}`}
                     theme={theme}
                     cellSize={cellSize}
-                    lang={lang}
                   />
                 );
               }

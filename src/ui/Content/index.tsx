@@ -11,6 +11,7 @@ import { BodyContent } from "./Body";
 import HeadContent from "./Head";
 import Loading from "../../components/Loading";
 import styles from "../../timeline.module.css";
+import { memo } from "react";
 
 type ContentProps = {
   currentDate: string;
@@ -25,7 +26,7 @@ type ContentProps = {
   lang: Locale;
 };
 
-function Content(props: ContentProps) {
+const Content = memo((props: ContentProps) => {
   const {
     currentDate,
     theme = defaultTheme,
@@ -38,6 +39,7 @@ function Content(props: ContentProps) {
     isLoading,
     lang,
   } = props;
+
   return (
     <FlexBox
       type="flex"
@@ -57,7 +59,7 @@ function Content(props: ContentProps) {
       <FlexBox size={12}>
         <>
           {isLoading && <Loading dataTestid="loading-indicator" />}
-          {!isLoading && (
+          {!isLoading && tdWidth && (
             <BodyContent
               theme={theme}
               currentDate={currentDate}
@@ -73,6 +75,6 @@ function Content(props: ContentProps) {
       </FlexBox>
     </FlexBox>
   );
-}
+});
 
 export default Content;

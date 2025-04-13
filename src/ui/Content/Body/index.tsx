@@ -32,6 +32,7 @@ export const BodyContent = (props: BodyContentProps) => {
     cellSize,
     lang,
   } = props;
+
   return (
     <FlexBox type="flex" direction="column" className={styles.bodyContent}>
       <ListDays

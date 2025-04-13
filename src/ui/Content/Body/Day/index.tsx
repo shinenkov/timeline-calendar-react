@@ -59,36 +59,34 @@ const Day = (props: DayOfMonthProps) => {
       dataTestid="day-container"
     >
       <Item theme={theme} className={styles.dayContainer}>
-        {range.isStart && (
-          <div data-testid="range-item">
-            <RangeItem
-              dataId={dataId}
-              range={range}
-              index={index}
-              cellSize={cellSize}
+        <div data-testid="range-item">
+          <RangeItem
+            dataId={dataId}
+            range={range}
+            index={index}
+            cellSize={cellSize}
+            eventLabel={eventLabel}
+            eventColor={eventColor}
+          />
+          <Tooltip
+            id={dataId}
+            opacity={1}
+            className={styles.tooltip}
+            place={"bottom"}
+          >
+            <TooltipContent
+              name={user.name}
               eventLabel={eventLabel}
               eventColor={eventColor}
+              startDate={range.startDate!}
+              endDate={range.endDate!}
+              statusColor={statusColor}
+              statusLabel={statusLabel}
+              theme={theme}
+              lang={lang}
             />
-            <Tooltip
-              id={dataId}
-              opacity={1}
-              className={styles.tooltip}
-              place={"bottom"}
-            >
-              <TooltipContent
-                name={user.name}
-                eventLabel={eventLabel}
-                eventColor={eventColor}
-                startDate={range.startDate!}
-                endDate={range.endDate!}
-                statusColor={statusColor}
-                statusLabel={statusLabel}
-                theme={theme}
-                lang={lang}
-              />
-            </Tooltip>
-          </div>
-        )}
+          </Tooltip>
+        </div>
       </Item>
     </FlexBox>
   );
