@@ -12,6 +12,7 @@ Install the library using npm:
 ```bash
 npm install timeline-calendar-react
 ```
+npm [GitHub repository](https://www.npmjs.com/package/timeline-calendar-react).
 
 ---
 
