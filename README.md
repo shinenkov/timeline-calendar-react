@@ -5,6 +5,9 @@
 
 ---
 
+[Demo on vercel](https://timeline-calendar-react-demo.vercel.app/)
+---
+
 ## Installation
 
 Install the library using npm:
@@ -12,7 +15,7 @@ Install the library using npm:
 ```bash
 npm install timeline-calendar-react
 ```
-[npm package](https://www.npmjs.com/package/timeline-calendar-react).
+[npm package](https://www.npmjs.com/package/timeline-calendar-react)
 
 ---
 
