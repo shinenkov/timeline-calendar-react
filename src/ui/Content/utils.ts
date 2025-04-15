@@ -21,30 +21,29 @@ export const getRangeStyle = (
   color: string | undefined,
   isAllMonth: boolean,
   isEndNextMonth: boolean,
-  cellSize?: string,
 ) => {
-  const basePx = 12;
+  const baseWidht = widthChip;
+  const shift = 4;
+
   let style: React.CSSProperties = {
     border: `0px solid ${color}55`,
-    justifyContent:
-      startDate === endDate || widthChip <= 64 ? "space-between" : "flex-start",
-    width: `${widthChip + (cellSize !== undefined ? basePx - 8 : basePx - 4)}px`,
-    maxWidth: `${widthChip + (cellSize !== undefined ? basePx - 8 : basePx - 4)}px`,
+    width: `${baseWidht - (shift * 2)}px`,
+    maxWidth: `${baseWidht - (shift * 2)}px`,
     background: `${color ?? "#f44336"}55`,
     color: color ?? "#f44336",
   };
   if (isEndNextMonth) {
     style = {
       ...style,
-      width: `${widthChip + (cellSize !== undefined ? basePx - 4 : basePx * 2)}px`,
-      maxWidth: `${widthChip + (cellSize !== undefined ? basePx - 4 : basePx * 2)}px`,
+      width: `${baseWidht - shift}px`,
+      maxWidth: `${baseWidht - shift}px`,
     };
   }
   if (isAllMonth) {
     style = {
       ...style,
-      width: `${widthChip + (cellSize !== undefined ? basePx : basePx * 2)}px`,
-      maxWidth: `${widthChip + (cellSize !== undefined ? basePx : basePx * 2)}px`,
+      width: `${baseWidht}px`,
+      maxWidth: `${baseWidht}px`,
     };
   }
   return style;

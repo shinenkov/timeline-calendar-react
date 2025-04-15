@@ -34,7 +34,7 @@ export const getRangesArray = (
       ? currentMonth.endOf("month").add(-1, "day")
       : endDate;
 
-    const count = Math.ceil(rangeEnd.diff(currentDay, "day", true));
+    const count = Math.ceil(rangeEnd.diff(currentDay, "day", true)) + 1;
 
     return {
       isStart: true,

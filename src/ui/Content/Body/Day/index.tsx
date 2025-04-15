@@ -64,7 +64,6 @@ const Day = (props: DayOfMonthProps) => {
             dataId={dataId}
             range={range}
             index={index}
-            cellSize={cellSize}
             eventLabel={eventLabel}
             eventColor={eventColor}
           />

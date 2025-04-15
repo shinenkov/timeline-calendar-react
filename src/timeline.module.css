@@ -3,6 +3,7 @@
 }
 
 .range {
+  box-sizing: border-box;
   font-size: 14px;
   padding: 0 12px;
   text-align: left;
@@ -15,6 +16,9 @@
   position: absolute;
   z-index: 2;
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .startPrev {

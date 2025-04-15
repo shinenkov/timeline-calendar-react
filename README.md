@@ -96,7 +96,7 @@ export default App;
 | Prop Name       | Type                           | Required | Default       | Description                                                                 |
 |-----------------|--------------------------------|----------|---------------|-----------------------------------------------------------------------------|
 | `theme`         | `"dark" or "light"`            | No       | `"light"`     | Theme of the calendar.                                                      |
-| `cellSize`      | `string`                       | No       | Flexible      | Size of each calendar cell (e.g., `'40px'`).                                |
+| `cellSize`      | `string`                       | No       | undefined     | Size of each calendar cell (e.g., `'40px'`). If undefined is Flexible       |
 | `accentColor`   | `string`                       | No       | `'#a7bac3'`   | Accent color for buttons and highlights.                                    |
 | `sidebarWidth`  | `number`                       | No       | `200`         | Width of the sidebar in pixels.                                             |
 | `lang`          | `"en" or "ru"`                 | No       | `"en"`        | Language for the calendar (English or Russian).                             |

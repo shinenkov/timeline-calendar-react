@@ -5,13 +5,12 @@ type ItemDataProps = {
   dataId: string;
   index: number;
   range: IRange;
-  cellSize?: string;
   eventLabel?: string;
   eventColor?: string;
 };
 
 const RangeItem = (props: ItemDataProps) => {
-  const { dataId, range, index, eventLabel, eventColor, cellSize } = props;
+  const { dataId, range, index, eventLabel, eventColor  } = props;
   return (
     <div
       data-tooltip-id={dataId}
@@ -26,12 +25,9 @@ const RangeItem = (props: ItemDataProps) => {
         eventColor,
         range.isAllMonth ?? false,
         range.isEndNextMonth ?? false,
-        cellSize,
       )}
     >
-      {range.startDate === range.endDate || range.width! <= 64
-        ? ""
-        : eventLabel}
+      {eventLabel}
     </div>
   );
 };
