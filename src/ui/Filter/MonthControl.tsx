@@ -60,6 +60,7 @@ function MonthControl({
             fill={defaultColors[theme].bgSecondary}
             width={"12px"}
             height={"11px"}
+            theme={theme}
           />
         </Button>
         <div className={styles.separator} />
@@ -74,6 +75,7 @@ function MonthControl({
             fill={defaultColors[theme].bgSecondary}
             width={"12px"}
             height={"11px"}
+            theme={theme}
           />
         </Button>
       </FlexBox>

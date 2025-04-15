@@ -28,20 +28,24 @@ export const Button = (props: ButtonProps) => {
     accentColor,
     sx,
   } = props;
+  const currentColor =
+    accentColor && accentColor.length > 3
+      ? accentColor
+      : defaultColors[theme].buttonBg;
 
   const buttonVariant = {
     contained: {
-      backgroundColor: accentColor,
+      backgroundColor: currentColor,
       color: defaultColors[theme].bgSecondary,
     },
     text: {
       backgroundColor: "transparent",
-      color: accentColor,
+      color: currentColor,
     },
     outlined: {
       backgroundColor: "transparent",
-      color: accentColor,
-      border: `1px solid ${accentColor}`,
+      color: currentColor,
+      border: `1px solid ${currentColor}`,
     },
   }[variant];
 

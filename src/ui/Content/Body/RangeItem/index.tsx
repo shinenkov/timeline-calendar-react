@@ -10,7 +10,7 @@ type ItemDataProps = {
 };
 
 const RangeItem = (props: ItemDataProps) => {
-  const { dataId, range, index, eventLabel, eventColor  } = props;
+  const { dataId, range, index, eventLabel, eventColor } = props;
   return (
     <div
       data-tooltip-id={dataId}

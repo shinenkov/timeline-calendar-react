@@ -1,13 +1,20 @@
+import { Theme } from "../types";
+import { defaultColors } from "../utils";
+
 type IconProps = {
   fill?: string;
   height?: string;
   width?: string;
+  theme: Theme;
 };
 export default function NextIcon(props: IconProps) {
-  const { fill, width, height } = props;
+  const { fill, width, height, theme } = props;
+  const currentColor =
+    fill && fill.length > 3 ? fill : defaultColors[theme].buttonBg;
+
   return (
     <svg
-      fill={fill ? fill : "#000000"}
+      fill={currentColor}
       height={width ? width : "32px"}
       width={height ? height : "32px"}
       version="1.1"

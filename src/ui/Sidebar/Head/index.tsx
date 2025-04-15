@@ -40,9 +40,19 @@ function HeadSidebar(props: HeadSidebarProps) {
           accentColor={accentColor}
         >
           {opened ? (
-            <Prev fill={accentColor} width={"11px"} height={"11px"} />
+            <Prev
+              theme={theme}
+              fill={accentColor}
+              width={"11px"}
+              height={"11px"}
+            />
           ) : (
-            <Next fill={accentColor} width={"11px"} height={"11px"} />
+            <Next
+              theme={theme}
+              fill={accentColor}
+              width={"11px"}
+              height={"11px"}
+            />
           )}
         </Button>
       </Item>

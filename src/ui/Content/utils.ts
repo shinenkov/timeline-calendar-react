@@ -27,8 +27,8 @@ export const getRangeStyle = (
 
   let style: React.CSSProperties = {
     border: `0px solid ${color}55`,
-    width: `${baseWidht - (shift * 2)}px`,
-    maxWidth: `${baseWidht - (shift * 2)}px`,
+    width: `${baseWidht - shift * 2}px`,
+    maxWidth: `${baseWidht - shift * 2}px`,
     background: `${color ?? "#f44336"}55`,
     color: color ?? "#f44336",
   };
