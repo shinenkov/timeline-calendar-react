@@ -14,9 +14,20 @@ export default defineConfig({
     }),
     cssInjectedByJsPlugin(),
   ],
+  resolve: {
+    alias: {
+      app: "/src/app",
+      entities: '/src/entities',
+      features: '/src/features',
+      hooks: '/src/hooks',
+      shared: '/src/shared',
+      utils: '/src/utils',
+      widgets: '/src/widgets',
+    }
+  },
   build: {
     lib: {
-      entry: path.resolve(__dirname, "src/index.tsx"),
+      entry: path.resolve(__dirname, "src/app/index.tsx"),
       name: "timeline-calendar-react",
       formats: ["es", "umd"],
       fileName: (format) => `timeline-calendar-react.${format}.js`,

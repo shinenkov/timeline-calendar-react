@@ -1,0 +1,120 @@
+.monthContainer {
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.currentMonthContainer {
+  flex-basis: 172px;
+  max-width: inherit;
+}
+
+.navigationContainer {
+  flex-basis: 110px;
+  max-width: inherit;
+}
+
+.dateContainer {
+  flex-basis: 100px;
+  max-width: inherit;
+}
+
+.currentMonthButton {
+  margin-right: 4px;
+}
+
+.prevButton {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.nextButton {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  margin-right: 16px;
+}
+
+.separator {
+  width: 1px;
+  background: transparent;
+}
+
+@media (min-width: 1200px) and (max-width: 1367px) {
+  .dateContainer {
+    flex-basis: calc(100% - 285px);
+    max-width: calc(100% - 285px);
+  }
+}
+
+@media (max-width: 500px) and (min-width: 450px) {
+  .dateContainer {
+    flex-basis: calc(100% - 285px);
+    max-width: calc(100% - 285px);
+  }
+}
+@media (max-width: 450px) {
+  .dateContainer {
+    padding: 8px 8px 0px;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 390px) {
+  .currentMonthContainer {
+    padding: 8px;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .currentMonthContainer button {
+    width: 100%;
+    margin-right: 0;
+  }
+  .navigationContainer {
+    padding: 8px;
+    flex-basis: 113px;
+    max-width: 113px;
+  }
+  .nextButton {
+    margin-right: 0;
+  }
+  .dateContainer {
+    flex-basis: calc(100% - 113px);
+    max-width: calc(100% - 113px);
+  }
+}
+
+@media (max-width: 500px) and (min-width: 450px) {
+  .dateContainer {
+    flex-basis: calc(100% - 285px);
+    max-width: calc(100% - 285px);
+  }
+}
+@media (max-width: 450px) {
+  .dateContainer {
+    padding: 8px 8px 0px;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 390px) {
+  .currentMonthContainer {
+    padding: 8px;
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+  .currentMonthContainer button {
+    width: 100%;
+    margin-right: 0;
+  }
+  .navigationContainer {
+    padding: 8px;
+    flex-basis: 113px;
+    max-width: 113px;
+  }
+  .nextButton {
+    margin-right: 0;
+  }
+  .dateContainer {
+    flex-basis: calc(100% - 113px);
+    max-width: calc(100% - 113px);
+  }
+}

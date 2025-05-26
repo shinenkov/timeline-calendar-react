@@ -1,0 +1,104 @@
+.wrap {
+  flex-wrap: wrap;
+}
+
+.container {
+  flex-wrap: wrap;
+  max-width: inherit;
+}
+
+.monthControlContainer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: inherit;
+}
+
+.controlsContainer {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  max-width: inherit;
+}
+
+.selectContainer {
+  display: flex;
+  flex-basis: 260px;
+  min-width: 240px;
+}
+
+.eventSelectContainer {
+  display: flex;
+  flex-basis: 320px;
+  min-width: 240px;
+}
+
+.searchContainer {
+  display: flex;
+  flex-basis: 320px;
+  min-width: 240px;
+}
+
+.select {
+  z-index: 10 !important;
+  min-width: 240px;
+}
+
+.eventSelect {
+  min-width: 240px;
+}
+
+@media (min-width: 1200px) and (max-width: 1367px) {
+  .dateContainer {
+    flex-basis: calc(100% - 285px);
+    max-width: calc(100% - 285px);
+  }
+}
+
+@media (max-width: 992px) {
+  .selectContainer,
+  .eventSelectContainer,
+  .searchContainer {
+    flex-basis: 33%;
+    min-width: 33%;
+  }
+  .monthControlContainer {
+    flex-basis: 100%;
+    min-width: 100%;
+  }
+  .selectContainer {
+    padding-left: 0;
+  }
+  .select,
+  .eventSelect,
+  .searchContainer {
+    min-width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .selectContainer,
+  .eventSelectContainer {
+    flex-basis: 50%;
+    min-width: 50%;
+  }
+  .searchContainer {
+    flex-basis: 100%;
+    min-width: 100%;
+  }
+  .selectContainer {
+    padding-left: 8px;
+  }
+  .controlsContainer {
+    justify-content: normal;
+  }
+}
+
+@media (max-width: 600px) {
+  .selectContainer,
+  .eventSelectContainer,
+  .searchContainer {
+    flex-basis: 100%;
+    min-width: 100%;
+  }
+}
