@@ -1,10 +1,9 @@
-import { defaultTheme } from "shared/lib";
-import Item from "shared/ui/Item";
-import { Theme } from "shared/model";
 import FlexBox from "shared/ui/FlexBox";
-import Button from "shared/ui/Button";
+import Item from "shared/ui/Item";
+import { SidebarToggle } from "features/toggle-sidebar";
+import { defaultTheme } from "shared/lib";
+import type { Theme } from "shared/model";
 import styles from "app/styles/timeline.module.css";
-import { NextIcon, PrevIcon } from "shared/ui";
 
 type HeadSidebarProps = {
   theme?: Theme;
@@ -30,30 +29,12 @@ function HeadSidebar(props: HeadSidebarProps) {
           display: "flex",
         }}
       >
-        <Button
+        <SidebarToggle
+          opened={opened}
+          onToggle={onToggle}
           theme={theme}
-          onClick={onToggle}
-          size={"small"}
-          variant={"outlined"}
-          dataTestid="sidebar-toggle"
           accentColor={accentColor}
-        >
-          {opened ? (
-            <PrevIcon
-              theme={theme}
-              fill={accentColor}
-              width={"11px"}
-              height={"11px"}
-            />
-          ) : (
-            <NextIcon
-              theme={theme}
-              fill={accentColor}
-              width={"11px"}
-              height={"11px"}
-            />
-          )}
-        </Button>
+        />
       </Item>
     </FlexBox>
   );

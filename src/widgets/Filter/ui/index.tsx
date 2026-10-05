@@ -1,13 +1,13 @@
 import FlexBox from "shared/ui/FlexBox";
-import Select from "shared/ui/Select";
+import { EventSelect } from "features/filter-by-event";
+import { StatusSelect } from "features/filter-by-status";
 import { SelectProvider } from "shared/ui";
 import { Locale, Theme } from "shared/model";
 import type { EventType } from "entities/event";
 import type { StatusType } from "entities/status";
-import { locale } from "shared/lib";
 import { defaultTheme } from "shared/lib";
-import { MonthControl } from "./MonthControl";
-import { Search } from "./Search";
+import { MonthControl } from "features/date-navigation";
+import { Search } from "features/search-users";
 import styles from "./filter.module.css";
 
 type FilterProps = {
@@ -56,17 +56,14 @@ function Filter({
                   padding={1}
                   className={styles.selectContainer}
                 >
-                  <Select
+                  <StatusSelect
                     theme={theme}
-                    optionsList={statuses}
-                    multiselect
-                    onOptionSelect={handleStatusSelect}
-                    selectedOptions={statuses}
+                    statuses={statuses}
+                    onStatusesChange={handleStatusSelect!}
+                    selectedStatuses={statuses}
                     className={styles.select}
-                    dataTestid="status-select"
                     accentColor={accentColor}
-                    defaultAll={locale[lang].allStatuses}
-                    defaultText={locale[lang].selectStatus}
+                    lang={lang}
                   />
                 </FlexBox>
               )}
@@ -76,17 +73,14 @@ function Filter({
                   padding={1}
                   className={styles.eventSelectContainer}
                 >
-                  <Select
+                  <EventSelect 
                     theme={theme}
-                    optionsList={events}
-                    multiselect
-                    onOptionSelect={handleEventSelect}
-                    selectedOptions={events}
+                    events={events}
+                    onEventsChange={handleEventSelect!}
+                    selectedEvents={events}
                     accentColor={accentColor}
                     className={styles.eventSelect}
-                    dataTestid="event-select"
-                    defaultAll={locale[lang].allEvents}
-                    defaultText={locale[lang].selectEvent}
+                    lang={lang}
                   />
                 </FlexBox>
               )}
