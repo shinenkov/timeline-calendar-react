@@ -1,19 +1,11 @@
 import FlexBox from "shared/ui/FlexBox";
 import Item from "shared/ui/Item";
 import { SidebarToggle } from "features/toggle-sidebar";
-import { defaultTheme } from "shared/lib";
-import type { Theme } from "shared/model";
+import { useCalendarConfig } from "shared/context";
 import styles from "app/styles/timeline.module.css";
 
-type HeadSidebarProps = {
-  theme?: Theme;
-  onToggle: () => void;
-  accentColor: string;
-  opened: boolean;
-};
-
-function HeadSidebar(props: HeadSidebarProps) {
-  const { theme = defaultTheme, onToggle, opened, accentColor } = props;
+function HeadSidebar() {
+  const { theme } = useCalendarConfig();
 
   return (
     <FlexBox type="flex" className={styles.headSidebar}>
@@ -29,12 +21,7 @@ function HeadSidebar(props: HeadSidebarProps) {
           display: "flex",
         }}
       >
-        <SidebarToggle
-          opened={opened}
-          onToggle={onToggle}
-          theme={theme}
-          accentColor={accentColor}
-        />
+        <SidebarToggle />
       </Item>
     </FlexBox>
   );

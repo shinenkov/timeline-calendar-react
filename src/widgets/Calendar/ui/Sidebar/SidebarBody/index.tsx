@@ -1,23 +1,21 @@
-import { Theme } from "shared/model";
-import type { UserWithRangeType } from "entities/user";
 import FlexBox from "shared/ui/FlexBox";
 import Item from "shared/ui/Item";
-import { defaultColors, defaultTheme } from "shared/lib";
-import { getInitials } from "shared/lib";
+import { defaultColors, getInitials } from "shared/lib";
+import { useCalendarConfig, useCalendarUI } from "shared/context";
+import type { UserWithRangeType } from "entities/user";
 import classNames from "classnames";
 import styles from "app/styles/timeline.module.css";
 
 type BodySideBarProps = {
   userWithRange: UserWithRangeType[];
-  theme?: Theme;
-  opened: boolean;
 };
 
-function BodySideBar(props: BodySideBarProps) {
-  const { userWithRange, theme = defaultTheme, opened } = props;
+function BodySideBar({ userWithRange }: BodySideBarProps) {
+  const { theme } = useCalendarConfig();
+  const { openSidebar } = useCalendarUI();
+
   return (
     <FlexBox className={styles.bodySidebar}>
-      {/* List of users*/}
       {userWithRange.map((user) => (
         <Item
           theme={theme}
@@ -29,10 +27,10 @@ function BodySideBar(props: BodySideBarProps) {
             justifyContent: "center",
           }}
         >
-          {opened && (
+          {openSidebar && (
             <div>
               <div
-                data-testid={"user-item"}
+                data-testid="user-item"
                 className={classNames(styles.text, styles.bodyTitle)}
               >
                 {user.name}
@@ -47,7 +45,7 @@ function BodySideBar(props: BodySideBarProps) {
               )}
             </div>
           )}
-          {!opened && (
+          {!openSidebar && (
             <FlexBox style={{ flexBasis: "10%" }}>
               <div
                 className={styles.avatar}

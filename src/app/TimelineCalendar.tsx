@@ -1,13 +1,4 @@
-import { useEffect, memo, useCallback } from "react";
-import FlexBox from "shared/ui/FlexBox";
-import { defaultColors, defaultTheme } from "shared/lib";
-import type { TimelineCalendarWrapperProps } from "features/calendar-state";
-import { useTimelineCalendar } from "features/calendar-state";
-import Filter from "widgets/filter-bar";
-import CalendarComponent from "widgets/calendar";
-
-import styles from "app/styles/timeline.module.css";
-
+import { useEffect, memo, useCallback, useMemo } from "react";
 import dayjs from "dayjs";
 import customParseFormat from "dayjs/plugin/customParseFormat";
 import isBetween from "dayjs/plugin/isBetween";
@@ -15,7 +6,26 @@ import weekday from "dayjs/plugin/weekday";
 import utc from "dayjs/plugin/utc";
 import ruRu from "dayjs/locale/ru";
 import enEn from "dayjs/locale/en";
-import { debounce, isSameDate } from "shared/lib";
+
+import FlexBox from "shared/ui/FlexBox";
+import { defaultColors, defaultTheme, debounce, isSameDate } from "shared/lib";
+import { useTimelineCalendar } from "features/calendar-state";
+import type { TimelineCalendarWrapperProps } from "features/calendar-state";
+import {
+  CalendarConfigProvider,
+  CalendarUIProvider,
+  type CalendarConfig,
+  type CalendarUI,
+} from "shared/context";
+import Filter from "widgets/filter-bar";
+import CalendarComponent from "widgets/calendar";
+
+import styles from "app/styles/timeline.module.css";
+
+dayjs.extend(customParseFormat);
+dayjs.extend(isBetween);
+dayjs.extend(weekday);
+dayjs.extend(utc);
 
 /**
  * TimelineCalendar Wrapper
@@ -31,18 +41,15 @@ const TimelineCalendarWrapper: React.FC<TimelineCalendarWrapperProps> = memo(
     const {
       theme = defaultTheme,
       cellSize,
-      lang,
+      lang = "en",
       hideFilters,
       accentColor = defaultColors[theme].buttonBg,
       sidebarWidth = 200,
     } = props;
 
     useEffect(() => {
-      if (lang === "en") {
-        dayjs.locale(enEn);
-      } else if (lang === "ru") {
-        dayjs.locale(ruRu);
-      }
+      if (lang === "en") dayjs.locale(enEn);
+      else if (lang === "ru") dayjs.locale(ruRu);
     }, [lang]);
 
     const {
@@ -94,57 +101,63 @@ const TimelineCalendarWrapper: React.FC<TimelineCalendarWrapperProps> = memo(
       return () => clearTimeout(timer);
     }, [currentDate, setIsLoading]);
 
-    const onToggleSidebar = useCallback(
-      () => setOpenSidebar(!openSidebar),
-      [openSidebar, setOpenSidebar],
+    const onDateChange = useCallback(
+      (newDate: string) => {
+        if (isSameDate(newDate, currentDate)) return;
+        setIsLoading(true);
+        setCurrentDate(newDate);
+      },
+      [currentDate, setIsLoading, setCurrentDate],
+    );
+
+    const config = useMemo<CalendarConfig>(
+      () => ({ theme, lang, accentColor, cellSize, sidebarWidth }),
+      [theme, lang, accentColor, cellSize, sidebarWidth],
+    );
+
+    const ui = useMemo<CalendarUI>(
+      () => ({
+        openSidebar,
+        setOpenSidebar,
+        currentDate,
+        tdWidth,
+        isLoading,
+        thRef,
+      }),
+      [openSidebar, setOpenSidebar, currentDate, tdWidth, isLoading, thRef],
     );
 
     return (
       <div className={styles.calendar} data-testid="timeline-calendar">
-        <FlexBox type="flex" direction="column">
-          <>
-            {!hideFilters && (
-              <Filter
-                theme={theme}
-                currentDate={currentDate}
-                events={currentEvents}
-                statuses={currentStatuses}
-                onDateChange={(newDate) => {
-                  if (isSameDate(newDate, currentDate)) return;
-                  setIsLoading(true);
-                  setCurrentDate(newDate);
-                }}
-                onSearch={handleChangeSearch}
-                handleEventSelect={setSelectedEvents}
-                handleStatusSelect={setSelectedStatuses}
-                accentColor={accentColor}
-                lang={lang}
-              />
-            )}
-          </>
-          <>
-            {filteredData.length > 0 && (
-              <FlexBox size={12} padding={1}>
-                <CalendarComponent
-                  theme={theme}
-                  userWithRange={filteredData}
-                  currentDate={currentDate}
-                  tdWidth={tdWidth}
-                  events={currentEvents}
-                  statuses={currentStatuses}
-                  cellSize={cellSize}
-                  isLoading={isLoading}
-                  thRef={thRef}
-                  openSidebar={openSidebar}
-                  accentColor={accentColor}
-                  sidebarWidth={sidebarWidth}
-                  onToggleSidebar={onToggleSidebar}
-                  lang={lang}
-                />
-              </FlexBox>
-            )}
-          </>
-        </FlexBox>
+        <CalendarConfigProvider value={config}>
+          <CalendarUIProvider value={ui}>
+            <FlexBox type="flex" direction="column">
+              <>
+                {!hideFilters && (
+                  <Filter
+                    events={currentEvents}
+                    statuses={currentStatuses}
+                    onDateChange={onDateChange}
+                    onSearch={handleChangeSearch}
+                    handleEventSelect={setSelectedEvents}
+                    handleStatusSelect={setSelectedStatuses}
+                  />
+                )}
+              </>
+              <>
+                {filteredData.length > 0 && (
+                  <FlexBox size={12} padding={1}>
+                    <CalendarComponent
+                      userWithRange={filteredData}
+                      events={currentEvents}
+                      statuses={currentStatuses}
+                    />
+                  </FlexBox>
+                )}
+              </>
+            </FlexBox>
+          </CalendarUIProvider>
+        </CalendarConfigProvider>
       </div>
     );
   },

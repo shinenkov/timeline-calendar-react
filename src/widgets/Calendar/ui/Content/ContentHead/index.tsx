@@ -1,22 +1,14 @@
 import dayjs from "dayjs";
-import { defaultTheme } from "shared/lib";
 import Item from "shared/ui/Item";
-import { Locale, Theme } from "shared/model";
 import FlexBox from "shared/ui/FlexBox";
 import { getDaysArray } from "shared/lib";
+import { useCalendarConfig, useCalendarUI } from "shared/context";
 import classNames from "classnames";
 import styles from "app/styles/timeline.module.css";
 
-type HeadContentProps = {
-  currentDate: string;
-  thRef: React.RefObject<HTMLDivElement | null>;
-  theme?: Theme;
-  cellSize?: string;
-  lang: Locale;
-};
-
-function HeadContent(props: HeadContentProps) {
-  const { currentDate, thRef, theme = defaultTheme, cellSize, lang } = props;
+function HeadContent() {
+  const { theme, cellSize, lang } = useCalendarConfig();
+  const { currentDate, thRef } = useCalendarUI();
 
   return (
     <FlexBox ref={thRef} type="flex" className={styles.headContent}>

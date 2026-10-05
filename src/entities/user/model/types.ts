@@ -18,3 +18,11 @@ export type UserWithRangeType = {
   department?: string;
   events: RangeType[];
 };
+
+export type RangesWithUser = RangeType &
+  Pick<User, "name" | "department"> & {
+    quantity?: number;
+    decision?: number;
+    department?: string;
+    position?: string;
+  };

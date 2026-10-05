@@ -1,1 +1,6 @@
-export type { User, Department, UserWithRangeType } from "./model/types";
+export type {
+  User,
+  Department,
+  UserWithRangeType,
+  RangesWithUser,
+} from "./model/types";

@@ -1,48 +1,29 @@
-import { defaultTheme } from "shared/lib";
 import FlexBox from "shared/ui/FlexBox";
 import HeadSidebar from "./SidebarHead";
 import BodySideBar from "./SidebarBody";
-import { Theme } from "shared/model";
 import type { UserWithRangeType } from "entities/user";
+import { useCalendarUI } from "shared/context";
 import styles from "app/styles/timeline.module.css";
 
 type SideBarProps = {
-  theme?: Theme;
   userWithRange: UserWithRangeType[];
-  onToggle: () => void;
-  opened: boolean;
-  accentColor: string;
 };
 
-function Sidebar(props: SideBarProps) {
-  const {
-    theme = defaultTheme,
-    userWithRange,
-    onToggle,
-    opened,
-    accentColor,
-  } = props;
+function Sidebar({ userWithRange }: SideBarProps) {
+  const { openSidebar } = useCalendarUI();
+
   return (
     <FlexBox
       dataTestid="sidebar"
       type="flex"
       direction="column"
-      className={styles.sidebar + (opened ? " opened" : " closed")}
+      className={styles.sidebar + (openSidebar ? " opened" : " closed")}
     >
       <FlexBox size={12}>
-        <HeadSidebar
-          accentColor={accentColor}
-          theme={theme}
-          onToggle={onToggle}
-          opened={opened}
-        />
+        <HeadSidebar />
       </FlexBox>
       <FlexBox size={12}>
-        <BodySideBar
-          opened={opened}
-          theme={theme}
-          userWithRange={userWithRange}
-        />
+        <BodySideBar userWithRange={userWithRange} />
       </FlexBox>
     </FlexBox>
   );

@@ -1,7 +1,6 @@
 import dayjs from "dayjs";
-import { Locale, Theme } from "shared/model";
-import { defaultColors, defaultTheme } from "shared/lib";
-import { locale } from "shared/lib";
+import { defaultColors, locale } from "shared/lib";
+import { useCalendarConfig } from "shared/context";
 import classNames from "classnames";
 import styles from "app/styles/timeline.module.css";
 
@@ -13,8 +12,6 @@ type TooltipContentProps = {
   endDate: string | Date;
   statusColor?: string;
   statusLabel?: string;
-  theme?: Theme;
-  lang: Locale;
 };
 
 const TooltipContent = (props: TooltipContentProps) => {
@@ -26,34 +23,31 @@ const TooltipContent = (props: TooltipContentProps) => {
     endDate,
     statusColor,
     statusLabel,
-    theme,
-    lang,
   } = props;
+
+  const { theme, lang } = useCalendarConfig();
+  const stylesSubtitle = classNames(styles.text, styles.subtitle);
+
   return (
     <>
-      <div className={classNames(styles.text, styles.subtitle)}>{name}:</div>
-      <div
-        className={classNames(styles.text, styles.subtitle)}
-        style={{ color: eventColor }}
-      >
+      <div className={stylesSubtitle}>{name}:</div>
+      <div className={stylesSubtitle} style={{ color: eventColor }}>
         {eventLabel}
       </div>
       <div
-        className={classNames(styles.text, styles.subtitle)}
-        style={{ color: defaultColors[theme ?? defaultTheme].textSecondary }}
+        className={stylesSubtitle}
+        style={{ color: defaultColors[theme].textSecondary }}
       >
         {locale[lang].from} {dayjs(startDate).format("DD.MM.YYYY")}{" "}
         {locale[lang].to} {dayjs(endDate).format("DD.MM.YYYY")}
       </div>
       {statusLabel && (
-        <div
-          className={classNames(styles.text, styles.subtitle)}
-          style={{ color: statusColor }}
-        >
+        <div className={stylesSubtitle} style={{ color: statusColor }}>
           {locale[lang].status}: {statusLabel}
         </div>
       )}
     </>
   );
 };
+
 export default TooltipContent;

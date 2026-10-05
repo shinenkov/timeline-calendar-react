@@ -1,13 +1,12 @@
 import { Tooltip } from "react-tooltip";
 import FlexBox from "shared/ui/FlexBox";
-import { Theme, Locale } from "shared/model";
-import type { UserWithRangeType } from "entities/user";
-import { defaultTheme } from "shared/lib";
 import Item from "shared/ui/Item";
+import type { UserWithRangeType } from "entities/user";
+import type { IRange } from "entities/range";
 import RangeItem from "../RangeItem";
 import TooltipContent from "../Tooltip";
+import { useCalendarConfig } from "shared/context";
 import styles from "../styles.module.css";
-import type { IRange } from "entities/range";
 
 type DayOfMonthProps = {
   index: number;
@@ -18,9 +17,6 @@ type DayOfMonthProps = {
   statusColor?: string;
   statusLabel?: string;
   xsSize: number;
-  theme?: Theme;
-  cellSize?: string;
-  lang: Locale;
 };
 
 const Day = (props: DayOfMonthProps) => {
@@ -33,10 +29,9 @@ const Day = (props: DayOfMonthProps) => {
     statusColor,
     statusLabel,
     xsSize,
-    theme = defaultTheme,
-    cellSize,
-    lang,
   } = props;
+
+  const { theme, cellSize } = useCalendarConfig();
 
   let dataId = `title-${user.name.replace(/\s/g, "").toLocaleLowerCase()}`;
   if (range.startDate !== undefined) {
@@ -83,8 +78,6 @@ const Day = (props: DayOfMonthProps) => {
               endDate={range.endDate!}
               statusColor={statusColor}
               statusLabel={statusLabel}
-              theme={theme}
-              lang={lang}
             />
           </Tooltip>
         </div>

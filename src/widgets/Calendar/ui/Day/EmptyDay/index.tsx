@@ -1,18 +1,14 @@
 import FlexBox from "shared/ui/FlexBox";
-import { Theme } from "shared/model";
-import { defaultTheme } from "shared/lib";
-import { Item } from "shared/ui";
-
+import Item from "shared/ui/Item";
+import { useCalendarConfig } from "shared/context";
 import styles from "../styles.module.css";
 
 type EmptyDayOfMonthProps = {
   xsSize: number;
-  theme?: Theme;
-  cellSize?: string;
 };
 
-const EmptyDay = (props: EmptyDayOfMonthProps) => {
-  const { xsSize, theme = defaultTheme, cellSize } = props;
+const EmptyDay = ({ xsSize }: EmptyDayOfMonthProps) => {
+  const { theme, cellSize } = useCalendarConfig();
 
   const maxWidth = (100 * xsSize) / 12;
   const containerStyle = {

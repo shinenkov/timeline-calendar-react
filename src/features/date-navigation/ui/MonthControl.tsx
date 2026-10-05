@@ -1,30 +1,22 @@
 import { useCallback } from "react";
 import dayjs from "dayjs";
 import Button from "shared/ui/Button";
-import { Locale, Theme } from "shared/model";
-import { defaultColors, defaultTheme } from "shared/lib";
-import { locale } from "shared/lib";
+import { NextIcon, PrevIcon } from "shared/ui";
 import FlexBox from "shared/ui/FlexBox";
 import classNames from "classnames";
+import { defaultColors, locale } from "shared/lib";
+import { useCalendarConfig, useCalendarUI } from "shared/context";
 import globalStyles from "app/styles/timeline.module.css";
-import { NextIcon, PrevIcon } from "shared/ui";
 import styles from "./styles.module.css";
 
 type MonthControlProps = {
-  currentDate: string;
   onDateChange: (newDate: string) => void;
-  theme?: Theme;
-  accentColor: string;
-  lang: Locale;
 };
 
-export function MonthControl({
-  currentDate,
-  onDateChange,
-  theme = defaultTheme,
-  accentColor,
-  lang,
-}: MonthControlProps) {
+export function MonthControl({ onDateChange }: MonthControlProps) {
+  const { theme, lang, accentColor } = useCalendarConfig();
+  const { currentDate } = useCalendarUI();
+
   const setCurrentMonth = useCallback(() => {
     onDateChange(dayjs().toString());
   }, [onDateChange]);
@@ -57,8 +49,8 @@ export function MonthControl({
         >
           <PrevIcon
             fill={defaultColors[theme].bgSecondary}
-            width={"12px"}
-            height={"11px"}
+            width="12px"
+            height="11px"
             theme={theme}
           />
         </Button>
@@ -72,8 +64,8 @@ export function MonthControl({
         >
           <NextIcon
             fill={defaultColors[theme].bgSecondary}
-            width={"12px"}
-            height={"11px"}
+            width="12px"
+            height="11px"
             theme={theme}
           />
         </Button>
