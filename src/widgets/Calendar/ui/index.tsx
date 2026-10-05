@@ -2,12 +2,12 @@ import React, { memo } from "react";
 import Sidebar from "./Sidebar";
 import Content from "./Content";
 import {
-  EventType,
   Locale,
-  StatusType,
   Theme,
-  UserWithRangeType,
 } from "shared/model";
+import type { UserWithRangeType } from "entities/user";
+import type { StatusType } from "entities/status";
+import type { EventType } from "entities/event";
 import FlexBox from "shared/ui/FlexBox";
 import { defaultTheme } from "shared/lib";
 import styles from "app/styles/timeline.module.css";

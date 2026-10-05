@@ -1,12 +1,12 @@
 import { memo } from "react";
 import { defaultTheme } from "shared/lib";
 import {
-  EventType,
   Locale,
-  StatusType,
   Theme,
-  UserWithRangeType,
 } from "shared/model";
+import type { UserWithRangeType } from "entities/user";
+import type { EventType } from "entities/event";
+import type { StatusType } from "entities/status";
 import FlexBox from "shared/ui/FlexBox";
 import BodyContent from "./ContentBody";
 import HeadContent from "./ContentHead";

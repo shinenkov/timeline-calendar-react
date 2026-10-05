@@ -1,4 +1,5 @@
-import { Theme, type UserWithRangeType } from "shared/model";
+import { Theme } from "shared/model";
+import type { UserWithRangeType } from "entities/user";
 import FlexBox from "shared/ui/FlexBox";
 import Item from "shared/ui/Item";
 import { defaultColors, defaultTheme } from "shared/lib";

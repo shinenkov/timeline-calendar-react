@@ -1,5 +1,7 @@
 import { CSSProperties, useEffect, useState, useId } from "react";
-import { StatusType, EventType, Theme } from "shared/model";
+import { Theme } from "shared/model";
+import type { StatusType } from "entities/status"
+import type { EventType } from "entities/event";
 import { defaultColors } from "shared/lib";
 import { useSelectContext } from "./context/index";
 import classNames from "classnames";

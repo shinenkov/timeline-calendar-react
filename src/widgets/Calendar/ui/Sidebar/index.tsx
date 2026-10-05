@@ -2,7 +2,8 @@ import { defaultTheme } from "shared/lib";
 import FlexBox from "shared/ui/FlexBox";
 import HeadSidebar from "./SidebarHead";
 import BodySideBar from "./SidebarBody";
-import { UserWithRangeType, Theme } from "shared/model";
+import { Theme } from "shared/model";
+import type { UserWithRangeType } from "entities/user";
 import styles from "app/styles/timeline.module.css";
 
 type SideBarProps = {

@@ -1,19 +1,19 @@
 import React from "react";
 import dayjs from "dayjs";
 import {
-  EventType,
   Locale,
-  StatusType,
   Theme,
-  UserWithRangeType,
 } from "shared/model";
+import type { UserWithRangeType } from "entities/user";
+import type { EventType } from "entities/event";
+import type { StatusType } from "entities/status";
 import FlexBox from "shared/ui/FlexBox";
 
 import Day from "../DayItem";
 import EmptyDay from "../EmptyDay";
-import { getRangesArray } from "../../../lib/day";
 import { getValue } from "shared/lib";
 import { defaultColors, defaultTheme } from "shared/lib";
+import { getRangesArray } from "entities/range";
 
 type ListRangesByUsersProps = {
   userWithRange: UserWithRangeType[];

@@ -1,8 +1,8 @@
 import { useEffect, memo, useCallback } from "react";
 import FlexBox from "shared/ui/FlexBox";
 import { defaultColors, defaultTheme } from "shared/lib";
-import { useTimelineCalendar } from "shared/calendar-state";
-import { TimelineCalendarWrapperProps } from "shared/model";
+import type { TimelineCalendarWrapperProps } from "features/calendar-state";
+import { useTimelineCalendar } from "features/calendar-state";
 import Filter from "widgets/Filter";
 import CalendarComponent from "widgets/Calendar";
 

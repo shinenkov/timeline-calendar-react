@@ -1,12 +1,13 @@
 import { Tooltip } from "react-tooltip";
 import FlexBox from "shared/ui/FlexBox";
-import { UserWithRangeType, Theme, Locale } from "shared/model";
+import { Theme, Locale } from "shared/model";
+import type { UserWithRangeType } from "entities/user";
 import { defaultTheme } from "shared/lib";
 import Item from "shared/ui/Item";
 import RangeItem from "../RangeItem";
 import TooltipContent from "../Tooltip";
 import styles from "../styles.module.css";
-import { IRange } from "shared/model";
+import type { IRange } from "entities/range"
 
 type DayOfMonthProps = {
   index: number;

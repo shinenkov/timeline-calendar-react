@@ -1,13 +1,11 @@
 import { useState, useEffect, useCallback, createRef } from "react";
 import dayjs from "dayjs";
-import {
-  EventType,
-  StatusType,
-  TimelineCalendarWrapperProps,
-  UserWithRangeType,
-} from "shared/model";
 import { compareUserWithRanges } from "./utils/compareUserWithRanges";
 import { stringToEvent } from "./utils/stringToEvent";
+import type { EventType } from "entities/event";
+import type { StatusType } from "entities/status";
+import type { UserWithRangeType } from "entities/user";
+import type { TimelineCalendarWrapperProps } from "features/calendar-state"
 
 export const useTimelineCalendar = (
   initialProps: TimelineCalendarWrapperProps,

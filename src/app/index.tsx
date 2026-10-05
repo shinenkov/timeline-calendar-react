@@ -1,15 +1,10 @@
 import TimelineCalendarWrapper from "./TimelineCalendar";
-import {
-  TimelineCalendarProps,
-  TimelineOptions,
-  Department,
-  User,
-  RangeType,
-  EventType,
-  StatusType,
-  Theme,
-  Locale,
-} from "shared/model";
+import type { TimelineCalendarProps, TimelineOptions } from "./model/types";
+import type { User, Department } from "entities/user";
+import type { RangeType } from "entities/range";
+import type { EventType } from "entities/event";
+import type { StatusType } from "entities/status";
+import type { Theme, Locale } from "shared/model";
 
 export type {
   TimelineCalendarProps,

@@ -1,0 +1,1 @@
+export type { User, Department, UserWithRangeType } from "./model/types";

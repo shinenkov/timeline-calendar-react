@@ -1,7 +1,9 @@
 import FlexBox from "shared/ui/FlexBox";
 import Select from "shared/ui/Select";
 import { SelectProvider } from "shared/ui";
-import { EventType, Locale, StatusType, Theme } from "shared/model";
+import { Locale, Theme } from "shared/model";
+import type { EventType } from "entities/event";
+import type { StatusType } from "entities/status";
 import { locale } from "shared/lib";
 import { defaultTheme } from "shared/lib";
 import { MonthControl } from "./MonthControl";

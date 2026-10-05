@@ -1,4 +1,5 @@
-import { EventType, StatusType } from "shared/model";
+import type { EventType } from "entities/event";
+import type { StatusType } from "entities/status";
 
 const eventColors = [
   "#f44336", // red

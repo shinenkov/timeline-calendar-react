@@ -1,4 +1,5 @@
-import { EventType, StatusType } from "shared/model";
+import type { EventType } from "entities/event";
+import type { StatusType } from "entities/status";
 
 type ValueType = "label" | "color";
 type ArrayType = StatusType[] | EventType[] | Map<number, string>;

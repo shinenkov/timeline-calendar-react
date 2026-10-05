@@ -1,8 +1,6 @@
 import dayjs from "dayjs";
-import { IRange } from "shared/model";
-import { UserWithRangeType } from "shared/model";
-import { Locale } from "shared/model";
-import { locale } from "shared/lib";
+import type { UserWithRangeType } from "entities/user";
+import type { IRange } from "./types";
 
 export const getRangesArray = (
   user: UserWithRangeType,
@@ -10,7 +8,6 @@ export const getRangesArray = (
   tdWidth: number | null,
 ): IRange[] => {
   const currentMonth = dayjs(currentDate);
-
   const daysInMonth = currentMonth.daysInMonth();
 
   return Array.from({ length: daysInMonth }, (_, index) => {
@@ -49,12 +46,4 @@ export const getRangesArray = (
       ...relevantEvent,
     };
   });
-};
-
-export const createDayLabel = (n: number, lang: Locale) => {
-  const cases = [2, 0, 1, 1, 1, 2];
-  const titles = [locale[lang].day1, locale[lang].day2, locale[lang].day3];
-  return `${n} ${
-    titles[n % 100 > 4 && n % 100 < 20 ? 2 : cases[n % 10 < 5 ? n % 10 : 5]]
-  }`;
 };

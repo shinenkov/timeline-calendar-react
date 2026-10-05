@@ -1,11 +1,7 @@
-import {
-  Department,
-  EventType,
-  RangeType,
-  StatusType,
-  User,
-  UserWithRangeType,
-} from "shared/model";
+import type { Department, User, UserWithRangeType } from "entities/user";
+import type { RangeType } from "entities/range";
+import type { EventType } from "entities/event";
+import type { StatusType } from "entities/status";
 import { getValue } from "shared/lib";
 
 type EventMapType = Map<string | number, string>;
