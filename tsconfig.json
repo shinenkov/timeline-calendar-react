@@ -18,14 +18,12 @@
     "baseUrl": "src",
     "paths": {
       "app/*": ["app/*"],
-      "entities/*": ["entities/*"],
-      "features/*": ["features/*"],
-      "hooks/*": ["hooks/*"],
-      "shared/*": ["shared/*"],
-      "utils/*": ["utils/*"],
       "widgets/*": ["widgets/*"],
-    },
+      "features/*": ["features/*"],
+      "entities/*": ["entities/*"],
+      "shared/*": ["shared/*"]
+    }
   },
   "include": ["src"],
-  "extends": [ "./tsconfig.node.json" ]
+  "extends": ["./tsconfig.node.json"]
 }

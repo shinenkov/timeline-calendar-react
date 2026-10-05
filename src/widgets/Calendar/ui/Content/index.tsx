@@ -26,7 +26,7 @@ type ContentProps = {
   lang: Locale;
 };
 
-const Content = memo((props: ContentProps) => {
+const Content = memo(function Content(props: ContentProps) {
   const {
     currentDate,
     theme = defaultTheme,

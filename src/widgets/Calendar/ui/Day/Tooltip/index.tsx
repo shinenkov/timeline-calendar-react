@@ -3,7 +3,7 @@ import { Locale, Theme } from "shared/model";
 import { defaultColors, defaultTheme } from "shared/lib";
 import { locale } from "shared/lib";
 import classNames from "classnames";
-import styles from "app/timeline.module.css";
+import styles from "app/styles/timeline.module.css";
 
 type TooltipContentProps = {
   name: string;

@@ -22,7 +22,7 @@ import { debounce, isSameDate } from "shared/lib";
  * @returns TimelineCalendar Component
  */
 const TimelineCalendarWrapper: React.FC<TimelineCalendarWrapperProps> = memo(
-  (props) => {
+  function TimelineCalendarWrapper(props) {
     dayjs.extend(customParseFormat);
     dayjs.extend(isBetween);
     dayjs.extend(weekday);

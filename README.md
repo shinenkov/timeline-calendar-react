@@ -1,12 +1,12 @@
 # Timeline Calendar React
+
 ![ScreenShot](https://i.postimg.cc/qqm4P6Ng/timeline.png)
 
 `timeline-calendar-react` is a customizable React library for displaying timeline-based calendars. It supports features like user ranges, events, statuses, and more, with a flexible and responsive design.
 
 ---
 
-[Demo on vercel](https://timeline-calendar-react-demo.vercel.app/)
----
+## [Demo on vercel](https://timeline-calendar-react-demo.vercel.app/)
 
 ## Installation
 
@@ -15,6 +15,7 @@ Install the library using npm:
 ```bash
 npm install timeline-calendar-react
 ```
+
 [npm package](https://www.npmjs.com/package/timeline-calendar-react)
 
 ---
@@ -24,11 +25,11 @@ npm install timeline-calendar-react
 Here is an example of how to use the `TimelineCalendar` component in your project:
 
 ```tsx
-import TimelineCalendar from 'timeline-calendar-react';
+import TimelineCalendar from "timeline-calendar-react";
 // ....
 export const mockUsers = [
-  { id: 1, name: 'John Doe', department: 'Sales' },
-  { id: 2, name: 'Jane Smith', department: undefined },
+  { id: 1, name: "John Doe", department: "Sales" },
+  { id: 2, name: "Jane Smith", department: undefined },
 ];
 
 export const mockRanges = [
@@ -37,37 +38,36 @@ export const mockRanges = [
     userId: 1,
     eventType: 1,
     statusType: 1,
-    startDate: '2025-04-01',
-    endDate: '2025-04-05',
+    startDate: "2025-04-01",
+    endDate: "2025-04-05",
   },
   {
     id: 2,
     userId: 2,
     eventType: 2,
     statusType: 2,
-    startDate: '2025-04-10',
-    endDate: '2025-04-15',
+    startDate: "2025-04-10",
+    endDate: "2025-04-15",
   },
 ];
 
 export const mockEvents = [
-  { id: 1, label: 'Vacation' },
-  { id: 2, label: 'Sick leave' },
+  { id: 1, label: "Vacation" },
+  { id: 2, label: "Sick leave" },
 ];
 
 export const mockStatuses = [
-  { id: 1, label: 'Approved' },
-  { id: 2, label: 'Pending' },
+  { id: 1, label: "Approved" },
+  { id: 2, label: "Pending" },
 ];
 
 const App = () => {
-
   return (
     <TimelineCalendar
-        ranges={mockRanges}
-        users={mockUsers}
-        events={mockEvents}
-        statuses={mockStatuses}
+      ranges={mockRanges}
+      users={mockUsers}
+      events={mockEvents}
+      statuses={mockStatuses}
     />
   );
 };
@@ -81,34 +81,36 @@ export default App;
 
 ### `TimelineCalendarProps`
 
-| Prop Name        | Type                          | Required | Default       | Description                                                                 |
-|------------------|-------------------------------|----------|---------------|-----------------------------------------------------------------------------|
-| `ranges`         | `RangeType[]`                 | Yes      | -             | Array of ranges to display on the calendar.                                 |
-| `users`          | `User[]`                      | Yes      | -             | Array of users to display in the sidebar.                                   |
-| `departments`    | `Department[]`                | No       | `undefined`   | Array of departments to display under user names.                           |
-| `events`         | `EventType[] or string[]`     | No       | `undefined`   | Array of events to display with custom labels and colors.                   |
-| `statuses`       | `StatusType[] or string[]`    | No       | `undefined`   | Array of statuses to display with custom labels and colors.                 |
-| `options`        | `TimelineOptions`             | No       | `undefined`   | render Options                                                              |
+| Prop Name     | Type                       | Required | Default     | Description                                                 |
+| ------------- | -------------------------- | -------- | ----------- | ----------------------------------------------------------- |
+| `ranges`      | `RangeType[]`              | Yes      | -           | Array of ranges to display on the calendar.                 |
+| `users`       | `User[]`                   | Yes      | -           | Array of users to display in the sidebar.                   |
+| `departments` | `Department[]`             | No       | `undefined` | Array of departments to display under user names.           |
+| `events`      | `EventType[] or string[]`  | No       | `undefined` | Array of events to display with custom labels and colors.   |
+| `statuses`    | `StatusType[] or string[]` | No       | `undefined` | Array of statuses to display with custom labels and colors. |
+| `options`     | `TimelineOptions`          | No       | `undefined` | render Options                                              |
 
 ---
 
 ### `TimelineOptions`
-| Prop Name       | Type                           | Required | Default       | Description                                                                 |
-|-----------------|--------------------------------|----------|---------------|-----------------------------------------------------------------------------|
-| `theme`         | `"dark" or "light"`            | No       | `"light"`     | Theme of the calendar.                                                      |
-| `cellSize`      | `string`                       | No       | undefined     | Size of each calendar cell (e.g., `'40px'`). If undefined is Flexible       |
-| `accentColor`   | `string`                       | No       | `'#a7bac3'`   | Accent color for buttons and highlights.                                    |
-| `sidebarWidth`  | `number`                       | No       | `200`         | Width of the sidebar in pixels.                                             |
-| `lang`          | `"en" or "ru"`                 | No       | `"en"`        | Language for the calendar (English or Russian).                             |
-| `currentDate`   | `string (format "YYYY-MM-DD")` | No       | `today`       | Current date to display (e.g., `'2025-04-01'`).                             |
-| `openedSidebar` | `boolean`                      | No       | `true`        | Whether the sidebar is open by default.                                     |
-| `hideFilters`   | `boolean`                      | No       | `false`       | Whether to hide the filters section.                                        |
+
+| Prop Name       | Type                           | Required | Default     | Description                                                           |
+| --------------- | ------------------------------ | -------- | ----------- | --------------------------------------------------------------------- |
+| `theme`         | `"dark" or "light"`            | No       | `"light"`   | Theme of the calendar.                                                |
+| `cellSize`      | `string`                       | No       | undefined   | Size of each calendar cell (e.g., `'40px'`). If undefined is Flexible |
+| `accentColor`   | `string`                       | No       | `'#a7bac3'` | Accent color for buttons and highlights.                              |
+| `sidebarWidth`  | `number`                       | No       | `200`       | Width of the sidebar in pixels.                                       |
+| `lang`          | `"en" or "ru"`                 | No       | `"en"`      | Language for the calendar (English or Russian).                       |
+| `currentDate`   | `string (format "YYYY-MM-DD")` | No       | `today`     | Current date to display (e.g., `'2025-04-01'`).                       |
+| `openedSidebar` | `boolean`                      | No       | `true`      | Whether the sidebar is open by default.                               |
+| `hideFilters`   | `boolean`                      | No       | `false`     | Whether to hide the filters section.                                  |
 
 ---
 
 ## Types
 
 ### `TimelineCalendarProps`
+
 ```typescript
 type TimelineCalendarProps = {
   ranges: RangeType[];
@@ -202,8 +204,9 @@ type TimelineOptions = {
   openedSidebar?: boolean;
   currentDate?: string;
   hideFilters?: boolean;
-}
+};
 ```
+
 ---
 
 ## Features

@@ -1,0 +1,16 @@
+# Зависимости
+node_modules
+
+# Сборка
+dist
+coverage
+
+# Замки
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Прочее
+.DS_Store
+*.log
+.swc-cache

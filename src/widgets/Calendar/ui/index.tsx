@@ -29,7 +29,9 @@ type CalendarComponentProps = {
   lang: Locale;
 };
 
-const CalendarComponent = memo((props: CalendarComponentProps) => {
+const CalendarComponent = memo(function CalendarComponent(
+  props: CalendarComponentProps,
+) {
   const {
     isLoading,
     currentDate,
