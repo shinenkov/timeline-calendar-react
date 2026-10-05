@@ -1,5 +1,5 @@
 import { getRangeStyle, getClassName } from "shared/lib";
-import type { IRange } from "entities/range"
+import type { IRange } from "entities/range";
 
 type ItemDataProps = {
   dataId: string;

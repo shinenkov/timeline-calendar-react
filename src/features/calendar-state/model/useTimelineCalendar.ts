@@ -5,7 +5,7 @@ import { stringToEvent } from "./utils/stringToEvent";
 import type { EventType } from "entities/event";
 import type { StatusType } from "entities/status";
 import type { UserWithRangeType } from "entities/user";
-import type { TimelineCalendarWrapperProps } from "features/calendar-state"
+import type { TimelineCalendarWrapperProps } from "features/calendar-state";
 
 export const useTimelineCalendar = (
   initialProps: TimelineCalendarWrapperProps,

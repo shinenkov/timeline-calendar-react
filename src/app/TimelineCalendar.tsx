@@ -3,8 +3,8 @@ import FlexBox from "shared/ui/FlexBox";
 import { defaultColors, defaultTheme } from "shared/lib";
 import type { TimelineCalendarWrapperProps } from "features/calendar-state";
 import { useTimelineCalendar } from "features/calendar-state";
-import Filter from "widgets/Filter";
-import CalendarComponent from "widgets/Calendar";
+import Filter from "widgets/filter-bar";
+import CalendarComponent from "widgets/calendar";
 
 import styles from "app/styles/timeline.module.css";
 

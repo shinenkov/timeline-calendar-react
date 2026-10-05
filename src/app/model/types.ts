@@ -1,11 +1,8 @@
-import type {
-  Theme,
-  Locale,
-} from "shared/model";
+import type { Theme, Locale } from "shared/model";
 import type { User, Department } from "entities/user";
 import type { RangeType } from "entities/range";
 import type { StatusType } from "entities/status";
-import type { EventType } from "entities/event"
+import type { EventType } from "entities/event";
 
 export type TimelineCalendarProps = {
   ranges: RangeType[];

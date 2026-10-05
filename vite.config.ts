@@ -1,8 +1,8 @@
-import { defineConfig, esmExternalRequirePlugin } from 'vite';
+import { defineConfig, esmExternalRequirePlugin } from "vite";
 import dts from "vite-plugin-dts";
 import path from "path";
-import react from '@vitejs/plugin-react';
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
+import react from "@vitejs/plugin-react";
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js";
 
 export default defineConfig({
   plugins: [
@@ -41,7 +41,7 @@ export default defineConfig({
       },
       plugins: [
         esmExternalRequirePlugin({
-          external: ['react', 'react-dom', 'react/jsx-runtime'],
+          external: ["react", "react-dom", "react/jsx-runtime"],
           skipDuplicateCheck: true,
         }),
       ],

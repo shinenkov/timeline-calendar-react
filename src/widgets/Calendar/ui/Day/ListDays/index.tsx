@@ -1,9 +1,6 @@
 import React from "react";
 import dayjs from "dayjs";
-import {
-  Locale,
-  Theme,
-} from "shared/model";
+import { Locale, Theme } from "shared/model";
 import type { UserWithRangeType } from "entities/user";
 import type { EventType } from "entities/event";
 import type { StatusType } from "entities/status";

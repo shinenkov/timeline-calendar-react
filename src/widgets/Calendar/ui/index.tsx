@@ -1,10 +1,7 @@
 import React, { memo } from "react";
 import Sidebar from "./Sidebar";
 import Content from "./Content";
-import {
-  Locale,
-  Theme,
-} from "shared/model";
+import { Locale, Theme } from "shared/model";
 import type { UserWithRangeType } from "entities/user";
 import type { StatusType } from "entities/status";
 import type { EventType } from "entities/event";

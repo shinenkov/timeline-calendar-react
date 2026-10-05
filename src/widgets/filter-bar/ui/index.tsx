@@ -73,7 +73,7 @@ function Filter({
                   padding={1}
                   className={styles.eventSelectContainer}
                 >
-                  <EventSelect 
+                  <EventSelect
                     theme={theme}
                     events={events}
                     onEventsChange={handleEventSelect!}

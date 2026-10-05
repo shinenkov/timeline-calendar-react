@@ -7,7 +7,7 @@ import Item from "shared/ui/Item";
 import RangeItem from "../RangeItem";
 import TooltipContent from "../Tooltip";
 import styles from "../styles.module.css";
-import type { IRange } from "entities/range"
+import type { IRange } from "entities/range";
 
 type DayOfMonthProps = {
   index: number;
