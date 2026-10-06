@@ -3,7 +3,16 @@
   "version": "1.0.0",
   "description": "A timeline calendar component for React, built with TypeScript and Vite.",
   "license": "MIT",
+  "author": "Alexander Shinenkov <alex.shinenkov@gmail.com>",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shinenkov/timeline-calendar-react.git"
+  },
+  "homepage": "https://github.com/shinenkov/timeline-calendar-react#readme",
+  "bugs": {
+    "url": "https://github.com/shinenkov/timeline-calendar-react/issues"
+  },
   "files": [
     "dist"
   ],

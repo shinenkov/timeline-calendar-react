@@ -9,11 +9,13 @@ export default defineConfig({
     react(),
     dts({
       insertTypesEntry: true,
+      entryRoot: "src",
       outDirs: [
         { dir: "dist", moduleFormat: "esm" },
         { dir: "dist", moduleFormat: "cjs" },
       ],
       include: ["src/**/*.ts", "src/**/*.tsx"],
+      exclude: ["src/**/*.test.ts", "src/**/*.test.tsx", "src/tests/**"],
     }),
     cssInjectedByJsPlugin(),
   ],

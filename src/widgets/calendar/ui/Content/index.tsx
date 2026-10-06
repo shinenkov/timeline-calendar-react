@@ -20,7 +20,7 @@ const Content = memo(function Content({
   events,
   statuses,
 }: ContentProps) {
-  const { cellSize } = useCalendarConfig();
+  const { cellSize, theme, accentColor } = useCalendarConfig();
   const { isLoading, tdWidth } = useCalendarUI();
 
   return (
@@ -33,13 +33,20 @@ const Content = memo(function Content({
       <FlexBox size={12}>
         <HeadContent />
       </FlexBox>
-      <FlexBox size={12}>
-        {isLoading && <Loading dataTestid="loading-indicator" />}
-        {!isLoading && tdWidth && (
+      <FlexBox size={12} style={{ position: "relative", flex: 1 }}>
+        {tdWidth !== null && (
           <BodyContent
             userWithRange={userWithRange}
             events={events}
             statuses={statuses}
+          />
+        )}
+        {isLoading && (
+          <Loading
+            dataTestid="loading-indicator"
+            overlay
+            theme={theme}
+            accentColor={accentColor}
           />
         )}
       </FlexBox>
