@@ -1,5 +1,6 @@
 import { RangeType } from "entities/range";
-import { Department, RangesWithUser, User } from "entities/user";
+import { Department, User } from "entities/user";
+import { RangesWithUser } from "../types";
 
 // Combining ranges with users
 export const compareRangesWithUser = (

@@ -1,27 +1,26 @@
 import { CSSProperties, useEffect, useState, useId } from "react";
 import { Theme } from "shared/model";
-import type { StatusType } from "entities/status";
-import type { EventType } from "entities/event";
+import type { SelectOptionBase } from "shared/model";
 import { defaultColors } from "shared/lib";
 import { useSelectContext } from "./context/index";
 import classNames from "classnames";
 import styles from "./select.module.css";
 
-type SelectProps = {
+type SelectProps<T extends SelectOptionBase> = {
   theme: Theme;
   defaultText: string;
   defaultAll: string;
-  optionsList: EventType[] | StatusType[];
+  optionsList: T[];
   multiselect?: boolean;
-  selectedOptions?: EventType[] | StatusType[];
+  selectedOptions?: T[];
   className?: string;
   style?: CSSProperties;
   accentColor: string;
   dataTestid?: string;
-  onOptionSelect?: (selectedOption: (EventType | StatusType)[]) => void;
+  onOptionSelect?: (selectedOption: T[]) => void;
 };
 
-function Select(props: SelectProps) {
+function Select<T extends SelectOptionBase>(props: SelectProps<T>) {
   const selectId = useId(); // Generate unique ID for this select
   const { activeSelectId, setActiveSelectId } = useSelectContext();
   const {
@@ -38,9 +37,7 @@ function Select(props: SelectProps) {
     accentColor,
   } = props;
   const [defaultSelectText, setDefaultSelectText] = useState(defaultText);
-  const [selected, setSelected] = useState<EventType[] | StatusType[]>(
-    selectedOptions,
-  );
+  const [selected, setSelected] = useState<T[]>(selectedOptions);
 
   const isOpen = activeSelectId === selectId;
 
@@ -75,7 +72,7 @@ function Select(props: SelectProps) {
     setActiveSelectId(isOpen ? null : selectId);
   };
 
-  const handleOptionClick = (option: EventType | StatusType) => {
+  const handleOptionClick = (option: T) => {
     if (multiselect) {
       const newSelected = [...selected];
       const optionIndex = newSelected.indexOf(option);
@@ -129,7 +126,7 @@ function Select(props: SelectProps) {
         <ul className={styles.selectOptions}>
           {optionsList.map((option) => {
             const isSelected = selected.some(
-              (item: EventType | StatusType) => item.id === option.id,
+              (item: T) => item.id === option.id,
             );
             const liStyle = {
               "--hover-checkmark": defaultColors[theme].hoverCheckmark,

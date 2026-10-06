@@ -11,7 +11,11 @@ function HeadContent() {
   const { currentDate, thRef } = useCalendarUI();
 
   return (
-    <FlexBox ref={thRef} type="flex" className={styles.headContent}>
+    <FlexBox
+      ref={thRef}
+      type="flex"
+      className={classNames("timeline-content-head", styles.headContent)}
+    >
       {/* Output of month numbers with days of the week */}
       {getDaysArray(currentDate, lang).map((day, i) => (
         <FlexBox

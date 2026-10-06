@@ -1,4 +1,7 @@
-export const locale = {
+import { Locale } from "shared/model";
+import { LocaleDict } from "shared/model/locale";
+
+export const locale: Record<Locale, LocaleDict> = {
   ru: {
     from: "с",
     to: "по",

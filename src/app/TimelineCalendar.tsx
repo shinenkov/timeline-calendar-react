@@ -20,7 +20,8 @@ import {
 import Filter from "widgets/filter-bar";
 import CalendarComponent from "widgets/calendar";
 
-import styles from "app/styles/timeline.module.css";
+import styles from "./styles/timeline.module.css";
+import "./styles/global.css";
 
 dayjs.extend(customParseFormat);
 dayjs.extend(isBetween);
@@ -33,11 +34,6 @@ dayjs.extend(utc);
  */
 const TimelineCalendarWrapper: React.FC<TimelineCalendarWrapperProps> = memo(
   function TimelineCalendarWrapper(props) {
-    dayjs.extend(customParseFormat);
-    dayjs.extend(isBetween);
-    dayjs.extend(weekday);
-    dayjs.extend(utc);
-
     const {
       theme = defaultTheme,
       cellSize,
@@ -132,29 +128,24 @@ const TimelineCalendarWrapper: React.FC<TimelineCalendarWrapperProps> = memo(
         <CalendarConfigProvider value={config}>
           <CalendarUIProvider value={ui}>
             <FlexBox type="flex" direction="column">
-              <>
-                {!hideFilters && (
-                  <Filter
-                    events={currentEvents}
-                    statuses={currentStatuses}
-                    onDateChange={onDateChange}
-                    onSearch={handleChangeSearch}
-                    handleEventSelect={setSelectedEvents}
-                    handleStatusSelect={setSelectedStatuses}
-                  />
-                )}
-              </>
-              <>
-                {filteredData.length > 0 && (
-                  <FlexBox size={12} padding={1}>
-                    <CalendarComponent
-                      userWithRange={filteredData}
-                      events={currentEvents}
-                      statuses={currentStatuses}
-                    />
-                  </FlexBox>
-                )}
-              </>
+              {!hideFilters && (
+                <Filter
+                  events={currentEvents}
+                  statuses={currentStatuses}
+                  onDateChange={onDateChange}
+                  onSearch={handleChangeSearch}
+                  handleEventSelect={setSelectedEvents}
+                  handleStatusSelect={setSelectedStatuses}
+                />
+              )}
+
+              <FlexBox size={12} padding={1}>
+                <CalendarComponent
+                  userWithRange={filteredData}
+                  events={currentEvents}
+                  statuses={currentStatuses}
+                />
+              </FlexBox>
             </FlexBox>
           </CalendarUIProvider>
         </CalendarConfigProvider>

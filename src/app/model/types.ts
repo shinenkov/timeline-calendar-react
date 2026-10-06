@@ -22,4 +22,6 @@ export type TimelineOptions = {
   openedSidebar?: boolean;
   currentDate?: string;
   hideFilters?: boolean;
+  onCurrentDateChange?: (date: string) => void;
+  onOpenedSidebarChange?: (opened: boolean) => void;
 };

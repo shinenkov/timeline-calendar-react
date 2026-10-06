@@ -70,7 +70,6 @@ const ListDays = React.memo(function ListDays({
                     user={user}
                     xsSize={xsSize}
                     range={range}
-                    index={index}
                     eventLabel={eventLabel}
                     eventColor={eventColor}
                     statusColor={statusColor}

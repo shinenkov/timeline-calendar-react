@@ -42,6 +42,8 @@ const TimelineCalendar = (props: TimelineCalendarProps) => {
       accentColor={options?.accentColor}
       openedSidebar={options?.openedSidebar ?? defaultOptions.openedSidebar}
       currentDate={options?.currentDate}
+      onCurrentDateChange={options?.onCurrentDateChange}
+      onOpenedSidebarChange={options?.onOpenedSidebarChange}
       hideFilters={options?.hideFilters ?? defaultOptions.hideFilters}
     />
   );

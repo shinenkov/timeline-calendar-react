@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, CSSProperties } from "react";
+import { useState, useCallback, useEffect, useRef, CSSProperties } from "react";
 import Input from "shared/ui/Input";
 import { locale } from "shared/lib";
 import { useCalendarConfig } from "shared/context";
@@ -13,6 +13,9 @@ export function Search({ onSearch, style }: SearchProps) {
   const [search, setSearch] = useState("");
   const [debouncedValue, setDebouncedValue] = useState(search);
 
+  const onSearchRef = useRef(onSearch);
+  onSearchRef.current = onSearch;
+
   useEffect(() => {
     const handler = setTimeout(() => {
       setDebouncedValue(search);
@@ -21,8 +24,8 @@ export function Search({ onSearch, style }: SearchProps) {
   }, [search]);
 
   useEffect(() => {
-    onSearch(debouncedValue);
-  }, [debouncedValue, onSearch]);
+    onSearchRef.current(debouncedValue);
+  }, [debouncedValue]);
 
   const handleChangeSearch = useCallback(
     (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {

@@ -1,20 +1,21 @@
 import type { EventType } from "entities/event";
 import type { StatusType } from "entities/status";
 
-const eventColors = [
-  "#f44336", // red
-  "#2196f3", // blue
-  "#4caf50", // green
-  "#ffeb3b", // yellow
-  "#ff9800", // orange
-  "#9c27b0", // purple
-  "#673ab7", // indigo
-  "#3f51b5", // deep-purple
-  "#00bcd4", // cyan
-  "#8bc34a", // lime
-  "#ff5722", // deep-orange
-];
+const EVENT_COLORS = [
+  "#f44336",
+  "#2196f3",
+  "#4caf50",
+  "#ffeb3b",
+  "#ff9800",
+  "#9c27b0",
+  "#673ab7",
+  "#3f51b5",
+  "#00bcd4",
+  "#8bc34a",
+  "#ff5722",
+] as const;
 
+/*
 export const stringToEvent = (events: string[]): EventType[] | StatusType[] => {
   const res: EventType[] | StatusType[] = [];
   const freeColors = [...eventColors];
@@ -30,3 +31,12 @@ export const stringToEvent = (events: string[]): EventType[] | StatusType[] => {
   });
   return res;
 };
+*/
+
+export const stringToEvent = (events: string[]): EventType[] | StatusType[] =>
+  events.map((label, index) => ({
+    id: index,
+    label,
+    icon: undefined,
+    color: EVENT_COLORS[index % EVENT_COLORS.length],
+  }));

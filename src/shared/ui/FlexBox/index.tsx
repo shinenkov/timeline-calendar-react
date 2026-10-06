@@ -1,4 +1,4 @@
-import React, { CSSProperties, JSX } from "react";
+import React, { CSSProperties } from "react";
 import classNames from "classnames";
 import styles from "./flexbox.module.css";
 
@@ -11,7 +11,7 @@ type FlexBoxProps = {
   style?: CSSProperties;
   className?: string;
   dataTestid?: string;
-  children?: JSX.Element | JSX.Element[];
+  children?: React.ReactNode;
 };
 
 const FlexBox = React.forwardRef<HTMLDivElement, FlexBoxProps>(

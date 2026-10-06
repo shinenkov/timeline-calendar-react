@@ -16,30 +16,25 @@ export const createEventMap = (events: EventType[]): EventMapType => {
   return new Map(events.map((d) => [d.id, d.label]));
 };
 
-const isEventMatch = (
-  event: RangeType,
-  eventMap: EventMapType,
-  selectedEvents: EventType[],
-): boolean => {
-  if (typeof event.eventType === "number") {
-    return eventMap.has(event.eventType);
+const isEventSelected = (event: RangeType, selected: EventType[]): boolean => {
+  const { eventType } = event;
+  if (eventType === undefined) return false;
+  if (typeof eventType === "number") {
+    return selected.some((s) => s.id === eventType);
   }
-  return selectedEvents.some(
-    (s) => (s as unknown as string) === event.eventType,
-  );
+  return selected.some((s) => s.label === eventType);
 };
 
-const isStatusMatch = (
+const isStatusSelected = (
   event: RangeType,
-  statusMap: EventMapType,
-  selectedStatuses: StatusType[],
+  selected: StatusType[],
 ): boolean => {
-  if (typeof event.statusType === "number") {
-    return statusMap.has(event.statusType);
+  const { statusType } = event;
+  if (statusType === undefined) return false;
+  if (typeof statusType === "number") {
+    return selected.some((s) => s.id === statusType);
   }
-  return selectedStatuses.some(
-    (s) => (s as unknown as string) === event.statusType,
-  );
+  return selected.some((s) => s.label === statusType);
 };
 
 // Combining users with ranges
@@ -54,49 +49,33 @@ export const compareUserWithRanges = (
   if (!users) return [];
 
   const departmentMap = new Map(departments?.map((d) => [d.id, d.name]));
-  const eventMap = selectedEvents ? createEventMap(selectedEvents) : undefined;
-  const statusMap = selectedStatuses
-    ? new Map(selectedStatuses.map((d) => [d.id, d.label]))
-    : undefined;
 
-  if (searchTerm && searchTerm.trim().length > 0) {
-    users = users.filter((user) => searchReg(searchTerm).test(user.name));
-  }
-  // Group events by user ID
+  const filteredUsers =
+    searchTerm && searchTerm.trim().length > 0
+      ? users.filter((user) => searchReg(searchTerm).test(user.name))
+      : users;
+
+  const hasEventFilter = !!selectedEvents && selectedEvents.length > 0;
+  const hasStatusFilter = !!selectedStatuses && selectedStatuses.length > 0;
+
   const userEventsMap = events?.reduce((acc, event) => {
     const userId = event.userId?.toString();
     if (!userId) return acc;
 
-    const shouldIncludeEvent = (() => {
-      if (
-        selectedEvents &&
-        selectedEvents.length > 0 &&
-        selectedStatuses &&
-        selectedStatuses.length > 0
-      ) {
-        return (
-          isEventMatch(event, eventMap!, selectedEvents) &&
-          isStatusMatch(event, statusMap!, selectedStatuses)
-        );
-      } else if (selectedEvents && selectedEvents.length > 0) {
-        return isEventMatch(event, eventMap!, selectedEvents);
-      } else if (selectedStatuses && selectedStatuses.length > 0) {
-        return isStatusMatch(event, statusMap!, selectedStatuses);
-      }
-      return true;
-    })();
+    const passesEvent =
+      !hasEventFilter || isEventSelected(event, selectedEvents!);
+    const passesStatus =
+      !hasStatusFilter || isStatusSelected(event, selectedStatuses!);
 
-    if (shouldIncludeEvent) {
-      if (!acc.has(userId)) {
-        acc.set(userId, []);
-      }
+    if (passesEvent && passesStatus) {
+      if (!acc.has(userId)) acc.set(userId, []);
       acc.get(userId)!.push(event);
     }
     return acc;
   }, new Map<string, RangeType[]>());
 
   // Map users to their events
-  return users.map((user) => ({
+  return filteredUsers.map((user) => ({
     id: user.id,
     name: user.name,
     department: getValue("", user.department, undefined, departmentMap),

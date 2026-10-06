@@ -1,1 +1,1 @@
-export { getRangeStyle, getClassName, getDaysArray, getRange } from "./range";
+export { getRangeStyle, getDaysArray, getRange } from "./range";

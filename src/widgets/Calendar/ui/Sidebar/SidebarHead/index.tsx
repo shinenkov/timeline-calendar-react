@@ -3,18 +3,22 @@ import Item from "shared/ui/Item";
 import { SidebarToggle } from "features/toggle-sidebar";
 import { useCalendarConfig } from "shared/context";
 import styles from "app/styles/timeline.module.css";
+import classNames from "classnames";
 
 function HeadSidebar() {
   const { theme } = useCalendarConfig();
 
   return (
-    <FlexBox type="flex" className={styles.headSidebar}>
+    <FlexBox
+      type="flex"
+      className={classNames("timeline-sidebar-head", styles.headSidebar)}
+    >
       <Item
         theme={theme}
         dataTestid="sidebar-head"
         sx={{
           minHeight: "40px",
-          border: 0,
+          /*border: 0,*/
           width: "100%",
           textAlign: "left",
           alignItems: "center",

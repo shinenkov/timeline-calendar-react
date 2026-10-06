@@ -18,4 +18,14 @@ export type TimelineCalendarWrapperProps = {
   currentDate?: string;
   openedSidebar: boolean;
   hideFilters?: boolean;
+  onCurrentDateChange?: (date: string) => void;
+  onOpenedSidebarChange?: (opened: boolean) => void;
 };
+
+export type RangesWithUser = RangeType &
+  Pick<User, "name" | "department"> & {
+    quantity?: number;
+    decision?: number;
+    department?: string;
+    position?: string;
+  };

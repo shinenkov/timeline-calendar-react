@@ -34,16 +34,19 @@ export const getRangesArray = (
       : endDate;
 
     const count = Math.ceil(rangeEnd.diff(currentDay, "day", true)) + 1;
+    const endDateStr = relevantEvent.endDate ?? relevantEvent.startDate;
 
     return {
+      ...relevantEvent,
       isStart: true,
-      width: tdWidth! * count,
+      startDate: relevantEvent.startDate,
+      endDate: endDateStr,
+      width: (tdWidth ?? 0) * count,
       isAllMonth:
         startDate.isBefore(currentMonth.startOf("month")) &&
         endDate.isAfter(currentMonth.endOf("month")),
       isStartPrevMonth: startDate.isBefore(currentMonth.startOf("month")),
       isEndNextMonth: endDate.isAfter(currentMonth.endOf("month")),
-      ...relevantEvent,
     };
   });
 };

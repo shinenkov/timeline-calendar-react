@@ -1,6 +1,7 @@
 import { Theme } from "shared/model";
 import { defaultColors } from "shared/lib";
 import styles from "app/styles/timeline.module.css";
+import classNames from "classnames";
 
 type ItemProps = {
   theme: Theme;
@@ -13,7 +14,7 @@ const Item = (props: ItemProps) => {
   const { theme, sx, children, className, dataTestid } = props;
   return (
     <div
-      className={styles.item + (className ? " " + className : "")}
+      className={classNames("timeline-item", styles.item, className)}
       data-testid={dataTestid}
       style={{
         backgroundColor: defaultColors[theme].bgPrimary,

@@ -15,7 +15,9 @@ function BodySideBar({ userWithRange }: BodySideBarProps) {
   const { openSidebar } = useCalendarUI();
 
   return (
-    <FlexBox className={styles.bodySidebar}>
+    <FlexBox
+      className={classNames("timeline-sidebar-body", styles.bodySidebar)}
+    >
       {userWithRange.map((user) => (
         <Item
           theme={theme}

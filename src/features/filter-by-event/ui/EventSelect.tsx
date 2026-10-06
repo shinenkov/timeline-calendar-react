@@ -19,7 +19,7 @@ export const EventSelect = ({
   const { theme, lang, accentColor } = useCalendarConfig();
 
   return (
-    <Select
+    <Select<EventType>
       theme={theme}
       optionsList={events}
       selectedOptions={selectedEvents}

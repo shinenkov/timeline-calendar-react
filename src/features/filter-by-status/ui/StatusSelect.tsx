@@ -19,7 +19,7 @@ export const StatusSelect = ({
   const { theme, lang, accentColor } = useCalendarConfig();
 
   return (
-    <Select
+    <Select<StatusType>
       theme={theme}
       optionsList={statuses}
       selectedOptions={selectedStatuses}

@@ -23,7 +23,7 @@ const CalendarComponent = memo(function CalendarComponent({
   const { openSidebar } = useCalendarUI();
 
   return (
-    <FlexBox type="flex" className={styles.rounded}>
+    <FlexBox type="flex">
       <FlexBox
         size={openSidebar ? 2 : 12}
         className={styles.sidebar}

@@ -1,16 +1,26 @@
-import { getRangeStyle, getClassName } from "shared/lib";
+import { getRangeStyle } from "shared/lib";
 import type { IRange } from "entities/range";
+import classNames from "classnames";
+import styles from "./range.module.css";
 
 type ItemDataProps = {
   dataId: string;
-  index: number;
   range: IRange;
   eventLabel?: string;
   eventColor?: string;
 };
 
+const getClassName = (isStartPrevMonth: boolean, isEndNextMonth: boolean) => {
+  const className = classNames(
+    styles.range,
+    isStartPrevMonth && styles.startPrev,
+    isEndNextMonth && styles.endNext,
+  );
+  return className;
+};
+
 const RangeItem = (props: ItemDataProps) => {
-  const { dataId, range, index, eventLabel, eventColor } = props;
+  const { dataId, range, eventLabel, eventColor } = props;
   return (
     <div
       data-tooltip-id={dataId}
@@ -19,8 +29,6 @@ const RangeItem = (props: ItemDataProps) => {
         range.isEndNextMonth ?? false,
       )}
       style={getRangeStyle(
-        index + 1,
-        index + 1 + range.width!,
         range.width!,
         eventColor,
         range.isAllMonth ?? false,

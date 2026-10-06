@@ -11,7 +11,7 @@ export default defineConfig({
       insertTypesEntry: true,
       outDirs: [
         { dir: "dist", moduleFormat: "esm" },
-        // { dir: "dist/cjs", moduleFormat: "cjs" }, // если понадобится CJS
+        { dir: "dist", moduleFormat: "cjs" },
       ],
       include: ["src/**/*.ts", "src/**/*.tsx"],
     }),

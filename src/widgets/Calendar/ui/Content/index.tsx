@@ -34,16 +34,14 @@ const Content = memo(function Content({
         <HeadContent />
       </FlexBox>
       <FlexBox size={12}>
-        <>
-          {isLoading && <Loading dataTestid="loading-indicator" />}
-          {!isLoading && tdWidth && (
-            <BodyContent
-              userWithRange={userWithRange}
-              events={events}
-              statuses={statuses}
-            />
-          )}
-        </>
+        {isLoading && <Loading dataTestid="loading-indicator" />}
+        {!isLoading && tdWidth && (
+          <BodyContent
+            userWithRange={userWithRange}
+            events={events}
+            statuses={statuses}
+          />
+        )}
       </FlexBox>
     </FlexBox>
   );

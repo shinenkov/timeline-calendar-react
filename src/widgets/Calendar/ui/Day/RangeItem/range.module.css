@@ -1,0 +1,37 @@
+.range {
+  box-sizing: border-box;
+  font-size: 14px;
+  padding: 0 12px;
+  text-align: left;
+  border-radius: 6px;
+  height: 2rem;
+  line-height: 2rem;
+  cursor: pointer;
+  top: 14px;
+  left: 4px;
+  position: absolute;
+  z-index: 2;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.startPrev {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  left: 0;
+}
+
+.endNext {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.range {
+  transition:
+    max-width 500ms,
+    width 500ms,
+    flex-basis 500ms,
+    min-width 500ms ease-in-out;
+}

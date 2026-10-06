@@ -9,12 +9,17 @@
   ],
   "main": "./dist/timeline-calendar-react.umd.js",
   "module": "./dist/timeline-calendar-react.es.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/timeline-calendar-react.es.js",
-      "require": "./dist/timeline-calendar-react.umd.js"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/timeline-calendar-react.es.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/timeline-calendar-react.umd.js"
+      }
     }
   },
   "engines": {

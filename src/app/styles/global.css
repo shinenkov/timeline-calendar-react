@@ -1,0 +1,19 @@
+/* Note: selectors depend on the FlexBox structure in
+ * widgets/calendar/ui/index.tsx, Sidebar/*, Content/*.
+ * If the div nesting changes, update this as well. */
+
+.timeline-sidebar-head .timeline-item {
+  border-top-left-radius: 6px;
+}
+
+.timeline-sidebar-body .timeline-item:last-child {
+  border-bottom-left-radius: 6px;
+}
+
+.timeline-content-head div:last-child .timeline-item {
+  border-top-right-radius: 6px;
+}
+
+.timeline-content-body div:last-child div div:last-child .timeline-item {
+  border-bottom-right-radius: 6px;
+}

@@ -9,7 +9,6 @@ import { useCalendarConfig } from "shared/context";
 import styles from "../styles.module.css";
 
 type DayOfMonthProps = {
-  index: number;
   user: UserWithRangeType;
   range: IRange;
   eventLabel?: string;
@@ -23,7 +22,6 @@ const Day = (props: DayOfMonthProps) => {
   const {
     user,
     range,
-    index,
     eventLabel,
     eventColor,
     statusColor,
@@ -60,7 +58,6 @@ const Day = (props: DayOfMonthProps) => {
           <RangeItem
             dataId={dataId}
             range={range}
-            index={index}
             eventLabel={eventLabel}
             eventColor={eventColor}
           />
@@ -70,15 +67,17 @@ const Day = (props: DayOfMonthProps) => {
             className={styles.tooltip}
             place={"bottom"}
           >
-            <TooltipContent
-              name={user.name}
-              eventLabel={eventLabel}
-              eventColor={eventColor}
-              startDate={range.startDate!}
-              endDate={range.endDate!}
-              statusColor={statusColor}
-              statusLabel={statusLabel}
-            />
+            {range.isStart && range.startDate && range.endDate && (
+              <TooltipContent
+                name={user.name}
+                eventLabel={eventLabel}
+                eventColor={eventColor}
+                startDate={range.startDate}
+                endDate={range.endDate}
+                statusColor={statusColor}
+                statusLabel={statusLabel}
+              />
+            )}
           </Tooltip>
         </div>
       </Item>

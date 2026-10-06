@@ -1,2 +1,5 @@
 export { useTimelineCalendar } from "./model/useTimelineCalendar";
-export type { TimelineCalendarWrapperProps } from "./model/types";
+export type {
+  RangesWithUser,
+  TimelineCalendarWrapperProps,
+} from "./model/types";

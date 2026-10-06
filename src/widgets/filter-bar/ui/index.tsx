@@ -33,36 +33,30 @@ function Filter({
             <MonthControl onDateChange={onDateChange} />
           </FlexBox>
           <FlexBox size={8} className={styles.controlsContainer}>
-            <>
-              {statuses && statuses.length > 0 && (
-                <FlexBox
-                  size={4}
-                  padding={1}
-                  className={styles.selectContainer}
-                >
-                  <StatusSelect
-                    statuses={statuses}
-                    selectedStatuses={statuses}
-                    onStatusesChange={handleStatusSelect}
-                    className={styles.select}
-                  />
-                </FlexBox>
-              )}
-              {events && events.length > 0 && (
-                <FlexBox
-                  size={4}
-                  padding={1}
-                  className={styles.eventSelectContainer}
-                >
-                  <EventSelect
-                    events={events}
-                    selectedEvents={events}
-                    onEventsChange={handleEventSelect}
-                    className={styles.eventSelect}
-                  />
-                </FlexBox>
-              )}
-            </>
+            {statuses && statuses.length > 0 && (
+              <FlexBox size={4} padding={1} className={styles.selectContainer}>
+                <StatusSelect
+                  statuses={statuses}
+                  selectedStatuses={statuses}
+                  onStatusesChange={handleStatusSelect}
+                  className={styles.select}
+                />
+              </FlexBox>
+            )}
+            {events && events.length > 0 && (
+              <FlexBox
+                size={4}
+                padding={1}
+                className={styles.eventSelectContainer}
+              >
+                <EventSelect
+                  events={events}
+                  selectedEvents={events}
+                  onEventsChange={handleEventSelect}
+                  className={styles.eventSelect}
+                />
+              </FlexBox>
+            )}
             <FlexBox size={4} padding={1} className={styles.searchContainer}>
               <Search onSearch={onSearch} />
             </FlexBox>
