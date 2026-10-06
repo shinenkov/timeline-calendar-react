@@ -1,6 +1,6 @@
 # Timeline Calendar React
 
-![ScreenShot](https://i.postimg.cc/qqm4P6Ng/timeline.png)
+![ScreenShot](./docs/screenshot.png)
 
 ![CI](https://github.com/shinenkov/timeline-calendar-react/actions/workflows/ci.yml/badge.svg)
 
