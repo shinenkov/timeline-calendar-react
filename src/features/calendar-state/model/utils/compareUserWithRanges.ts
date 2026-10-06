@@ -50,10 +50,13 @@ export const compareUserWithRanges = (
 
   const departmentMap = new Map(departments?.map((d) => [d.id, d.name]));
 
-  const filteredUsers =
-    searchTerm && searchTerm.trim().length > 0
-      ? users.filter((user) => searchReg(searchTerm).test(user.name))
-      : users;
+  const trimmedSearch = searchTerm?.trim();
+  const searchRegex =
+    trimmedSearch && trimmedSearch.length > 0 ? searchReg(trimmedSearch) : null;
+
+  const filteredUsers = searchRegex
+    ? users.filter((user) => searchRegex.test(user.name))
+    : users;
 
   const hasEventFilter = !!selectedEvents && selectedEvents.length > 0;
   const hasStatusFilter = !!selectedStatuses && selectedStatuses.length > 0;

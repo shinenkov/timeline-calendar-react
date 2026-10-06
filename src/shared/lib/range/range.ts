@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { Locale } from "shared/model";
+import { defaultColors } from "../colors";
 
 // Style of the chips on the month
 export const getRangeStyle = (
@@ -10,13 +11,14 @@ export const getRangeStyle = (
 ) => {
   const baseWidth = widthChip;
   const shift = 4;
+  const baseColor = color ?? defaultColors.dark.eventColor;
 
   let style: React.CSSProperties = {
-    border: `0px solid ${color}55`,
+    border: `0px solid ${baseColor}55`,
     width: `${baseWidth - shift * 2}px`,
     maxWidth: `${baseWidth - shift * 2}px`,
-    background: `${color ?? "#f44336"}55`,
-    color: color ?? "#f44336",
+    background: `${baseColor}55`,
+    color: baseColor,
   };
   if (isEndNextMonth) {
     style = {

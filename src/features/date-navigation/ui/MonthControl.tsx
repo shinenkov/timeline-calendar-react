@@ -46,6 +46,7 @@ export function MonthControl({ onDateChange }: MonthControlProps) {
           onClick={() => changeCurrentMonth(false)}
           accentColor={accentColor}
           className={styles.prevButton}
+          dataTestid="prev-button"
         >
           <PrevIcon
             fill={defaultColors[theme].bgSecondary}

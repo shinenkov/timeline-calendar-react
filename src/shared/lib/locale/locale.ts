@@ -27,7 +27,7 @@ export const locale: Record<Locale, LocaleDict> = {
     currentMonth: "Current month",
     search: "Search",
     day1: "Day",
-    day2: "Day",
+    day2: "Days",
     day3: "Days",
   },
 };
